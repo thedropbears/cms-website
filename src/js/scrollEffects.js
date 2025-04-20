@@ -12,3 +12,6 @@ export function setupScrollEffect() {
         }
     });
 } 
+
+// Call the function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', setupScrollEffect); 

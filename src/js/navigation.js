@@ -25,5 +25,5 @@ function initializeNavigation() {
     });
 }
 
-// Call the function when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initializeNavigation); 
+// Export the function as default
+export default initializeNavigation; 

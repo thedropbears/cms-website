@@ -6,21 +6,6 @@
     --accent-color: #FdB916;
 }
 
-@font-face {
-    font-family: 'Geist Mono';
-    src: url('/fonts/GeistMono-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Geist Mono';
-    src: url('/fonts/GeistMono-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
 /* ==========================================================================
    Base Styles
    ========================================================================== */
@@ -301,6 +286,22 @@ nav.scrolled {
     animation: bounce 2s infinite;
     cursor: pointer;
     transition: opacity 0.3s ease;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+}
+
+.arrow-fallback {
+    display: none;
+}
+
+/* If Phosphor icon fails to load, show fallback */
+.ph-arrow-down-bold:not(:before) + .arrow-fallback {
+    display: inline-block;
 }
 
 @keyframes bounce {
@@ -365,15 +366,16 @@ nav.scrolled {
 }
 
 .sponsor-logo::after {
-    content: '\ea54';  /* Phosphor Icons unicode for arrow-right */
-    font-family: 'Phosphor Icons';
+    content: "ph arrow-square-out";
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 0.2s;
-    color: var(--primary-bg);
 }
 
 .sponsor-logo:hover::after {

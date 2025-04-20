@@ -1,4 +1,4 @@
-import { initializeNavigation } from './navigation.js';
+import initializeNavigation from './navigation.js';
 
 /**
  * loads the navigation HTML from an external file
@@ -9,7 +9,7 @@ export async function loadNavigation() {
     if (!navPlaceholder) return;
 
     try {
-        const response = await fetch('/nav.html');
+        const response = await fetch('src/components/nav.html');
         const html = await response.text();
         navPlaceholder.innerHTML = html;
 
@@ -26,3 +26,6 @@ export async function loadNavigation() {
         console.error('Error loading navigation:', error);
     }
 } 
+
+// Call the function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', loadNavigation); 
