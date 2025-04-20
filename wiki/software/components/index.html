@@ -1,0 +1,72 @@
+Required Robot components
+These are the parts that every team is required to have by the rules.
+
+
+roboRIO
+The roboRIO is a programmable controller and runs the primary robot code, it is basically a small computer similar to a raspberry PI. It has a Dual core ARM processor, an FPGA, lots of IO and runs linux. The part serves as one end to the CAN bus, as well as a mounting point for the navX.
+
+
+CTRE Power Distribution Panel (PDP)
+The Power Distribution Panel is a bus that sends 12V power from the battery to the various control system parts. It has 16 ports allowing us to use up to 16 motors.
+
+This serves as the other terminating end of the CAN bus.
+
+
+Radio
+The radio allows us to connect to the robot wirelessly. When not at a competition it creates a WIFI network which you connect to to drive the robot or deploy code. When at competitions it is reconfigured to connect to the Field Managment System (FMS) and to deploy code you must connect to the radio with ethernet.
+
+
+Main Breaker
+The main breaker is the main power switch for the robot. Pressing the red switch down disconnects the power, pushing the black lever in until it clicks (in in the photo) connects the power.
+
+
+RSL (Radio status light)
+The RSL is required by the rules and displays the current state of the robot. If it is flashing the robot in on and enabled (able to move), if it is on and solid the robot is on but disabled and will not move, if it is off either the robot is off or the light is not connected correctly.
+
+
+VRM (Voltage Regulator Module)
+The VRM provides regulated voltages for other components (e.g. the radio or co processors) at 12V or 5V. The voltages this provides are not as affected by the variations of the battery voltage.
+
+Other parts
+We will almost certaintly have these but they are not required.
+
+
+PCM (Pnumatics Control Module)
+The PCM provides power, and allows for easy control over CAN, of pneumatic solenoids.
+
+
+
+Co processors.
+Coprocessors allow us to do things that require more computing power than what the roboRio has such as computer vision. Typically we connect these to the robotRio with ethernet and power them with the VRM. In the past we have used Raspberry Pi's and the Limelight which is a plug and play vision solution for retroreflective tape and contain a raspberry Pi compute module.
+
+
+Network Switch
+The radio has two ethernet ports however the second one (furthest from power jack) is known to have reliability issues and we often need more than one port. To fix this we use a small network switch that connects the radio, roboRio, any coprocessors and laptops when at comps.
+
+Motors & Motor Controllers
+Information about the power, speed and torque of all FRC legal motors can be found here.
+
+There are two types of motors that we use brushed and brushless. Brushless are typically smaller, more powerful and last longer, brushed motors are cheaper.  Brushless motors can also measure relative rotation without a separate encoder.
+
+Brushless and brushed motors  need different motor controllers.
+
+
+Falcon 500
+The CTRE Falcon 500 is a brushless motor and is the most powerful that we can use. It has a TalonFX motor controller built into it so doesn't need a separate motor controller.
+
+
+
+Brushless Motors
+The REV Neo and the much smaller Neo 550 are both brushless motors and need a spark MAX motor controller.
+
+
+
+Brushed Motors
+The BAG motor is the only one we are using anymore but there is also the CIM, mini CIM and 775pro, all of them should be used with a CTRE Talon SRX. 
+
+
+for more information on other components we don't use or that I forgot see these
+
+https://docs.wpilib.org/en/stable/docs/controls-overviews/control-system-hardware.html
+
+https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-1/how-to-wire-a-robot.html

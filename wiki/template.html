@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Page Title</title>
+    <link rel="stylesheet" href="/src/css/phosphor-icons.css">
+    <link rel="stylesheet" href="/src/css/styles.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div class="content-wrapper">
+        <section>
+            <h1 class="section-title">Wiki Page Title</h1>
+            
+            <!-- Introduction Section -->
+            <div class="text-content">
+                <p>This is the introduction paragraph for this wiki page. It provides an overview of the topic and sets the context for the reader. Edit this content as needed for your specific wiki page.</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="text-content">
+                <h2 class="section-subtitle">Contents</h2>
+                <ul>
+                    <li><a href="#section1">Section 1: Basic Content</a></li>
+                    <li><a href="#section2">Section 2: Images and Media</a></li>
+                    <li><a href="#section3">Section 3: Lists and Tables</a></li>
+                    <li><a href="#section4">Section 4: Cards and Grid Layouts</a></li>
+                </ul>
+            </div>
+
+            <!-- Section 1: Basic Content -->
+            <section id="section1">
+                <h2 class="section-subtitle">Section 1: Basic Content</h2>
+                <div class="text-content">
+                    <p>This is a standard paragraph of text. You can use paragraphs to explain concepts, provide information, or tell stories. The text should be clear, concise, and well-structured.</p>
+                    
+                    <h3>Subsection Heading</h3>
+                    <p>This is a subsection within the main section. It allows for more organized content presentation. You can have multiple subsections within each main section.</p>
+                    
+                    <blockquote class="notice">
+                        <div class="notice-header">
+                            <h3>Important Note</h3>
+                        </div>
+                        <p>This is a highlighted note or important information that you want to stand out from the rest of the content. Use this for critical information, warnings, or key points.</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Section 2: Images and Media -->
+            <section id="section2">
+                <h2 class="section-subtitle">Section 2: Images and Media</h2>
+                <div class="text-content">
+                    <p>Images and other media can be included to illustrate concepts, show examples, or provide visual interest. Here's an example of how to include an image:</p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="/assets/media/logo-white.png" alt="The Drop Bears Logo" style="max-width: 300px;">
+                        <p style="font-size: 0.9em; color: #888; margin-top: 10px;">Image caption: The Drop Bears team logo</p>
+                    </div>
+                    
+                    <p>You can also embed videos, diagrams, or other media as needed for your content.</p>
+                </div>
+            </section>
+
+            <!-- Section 3: Lists and Tables -->
+            <section id="section3">
+                <h2 class="section-subtitle">Section 3: Lists and Tables</h2>
+                <div class="text-content">
+                    <h3>Unordered List</h3>
+                    <ul>
+                        <li>First item in an unordered list</li>
+                        <li>Second item in an unordered list</li>
+                        <li>Third item with a sub-list:
+                            <ul>
+                                <li>Sub-item 1</li>
+                                <li>Sub-item 2</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h3>Ordered List</h3>
+                    <ol>
+                        <li>First step in a process</li>
+                        <li>Second step in a process</li>
+                        <li>Third step in a process</li>
+                    </ol>
+                    
+                    <h3>Simple Table</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--accent-color);">
+                                <th style="padding: 10px; text-align: left;">Header 1</th>
+                                <th style="padding: 10px; text-align: left;">Header 2</th>
+                                <th style="padding: 10px; text-align: left;">Header 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 10px;">Row 1, Cell 1</td>
+                                <td style="padding: 10px;">Row 1, Cell 2</td>
+                                <td style="padding: 10px;">Row 1, Cell 3</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 10px;">Row 2, Cell 1</td>
+                                <td style="padding: 10px;">Row 2, Cell 2</td>
+                                <td style="padding: 10px;">Row 2, Cell 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 4: Cards and Grid Layouts -->
+            <section id="section4">
+                <h2 class="section-subtitle">Section 4: Cards and Grid Layouts</h2>
+                <p>Cards and grids can be used to present information in a more visual and organized way.</p>
+                
+                <!-- Example of Card Grid (using the what-we-do-grid style) -->
+                <div class="what-we-do-grid">
+                    <div class="what-we-do-card">
+                        <h2>Card Title 1</h2>
+                        <hr>
+                        <p>This is the content for card 1. You can include any information that fits within this card format.</p>
+                    </div>
+                    <div class="what-we-do-card">
+                        <h2>Card Title 2</h2>
+                        <hr>
+                        <p>This is the content for card 2. Cards are great for presenting information in bite-sized chunks.</p>
+                    </div>
+                    <div class="what-we-do-card">
+                        <h2>Card Title 3</h2>
+                        <hr>
+                        <p>This is the content for card 3. You can add as many cards as needed to present your information.</p>
+                    </div>
+                </div>
+
+                <!-- Team-style Layout -->
+                <h3 class="section-subtitle">Team-style Layout</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <h3>Team Card Title 1</h3>
+                        <p>This is a different card style that can be used for team members, features, or other content that works well in this format.</p>
+                        <ul>
+                            <li>Key point 1</li>
+                            <li>Key point 2</li>
+                            <li>Key point 3</li>
+                        </ul>
+                    </div>
+                    <div class="team-card">
+                        <h3>Team Card Title 2</h3>
+                        <p>Another example of the team card style. This can be used for various types of content that benefit from this layout.</p>
+                        <ul>
+                            <li>Feature 1</li>
+                            <li>Feature 2</li>
+                            <li>Feature 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- References or Related Pages -->
+            <section>
+                <h2 class="section-subtitle">References and Related Pages</h2>
+                <div class="text-content">
+                    <ul>
+                        <li><a href="#">Related Wiki Page 1</a></li>
+                        <li><a href="#">Related Wiki Page 2</a></li>
+                        <li><a href="#">External Reference 1</a></li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <script src="/src/js/navLoader.js"></script>
+    <script src="/src/js/scrollEffects.js"></script>
+    <script src="/src/js/navigation.js"></script>
+</body>
+</html>

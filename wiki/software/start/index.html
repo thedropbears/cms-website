@@ -1,0 +1,115 @@
+Getting started
+How to get setup:
+Make Github Account
+
+Install Git
+
+Install Python
+
+Install libraries
+
+Install a text editor
+
+Notes
+The term 'Terminal' refers to a text prompt to enter commands on your system. It is an essential tool when working with the robot. Some basic knowledge is assumed when working through these instructions. If something is unclear, try a quick Google or ask in Slack!
+
+Windows:  Windows has several terminal options by default. It is recommended that you install Windows Terminal. We suggest configuring it to make the default profile Windows PowerShell if it isn't already and making it the default terminal application. It can be opened like any other Windows program or swiftly by pressing the Windows key, typing wt and pressing enter. You can also open it directly in a folder by holding down shift, right-clicking the folder and selecting "open in PowerShell".
+
+Mac: Open finder and search for terminal to open. It is suggested that you add a keyboard shortcut for ease of access. Typical Linux usage has ctrl-alt-t, so an easy equivalent here is command-option-t.
+
+Linux: use ctrl-alt-t.
+
+In all operating systems, it is recommended to pin the program to your relevant taskbar for easy access.
+
+Many of the commands you will need to enter begin with python; you may have to use py (windows) or python3 instead.
+
+Making A Github Account
+Every software section member must create a GitHub account to contribute to our development. If you already have an account from previous work or hobbies, it is recommended to register a secondary email with your account in the settings menu. Otherwise, follow this website and the sign-up steps to make an account.
+
+Installing Git
+If you do not already have git installed... – you can check by running git --version in your terminal
+
+Windows: Visit the git website here
+
+macOS: There is a version of git ~built into macOS. It gets installed as a prerequisite for Homebrew. However, you can get a more up-to-date version from Homebrew too: brew install git
+
+Linux: Install git using your package manager.
+
+Installing Python
+We recommend installing the latest version of Python (3.10 at the time of writing), however any version from 3.8 onwards will work with RobotPy (the set of Python libraries used to program robots in FRC).
+
+Windows
+Before continuing, you should check whether you have installed Python already.
+
+Open a terminal.
+
+Type python --version – this should either tell you Python is not installed from the Microsoft Store, or tell you what version of Python you have.
+
+Type py -0 – this will either error, or tell you what versions of Python you have installed via other means.
+
+From the Microsoft Store
+This is probably the easiest way to get started with Python on Windows.
+
+Run python in your terminal to go to the Microsoft Store page.
+
+Press install.
+
+This will provide both a python and python3 command. However, it does not install a py command.
+
+From Python.org
+Visit Python.org.
+
+Download and install the latest version of Python.
+
+Note that there are a few subtle differences with the Python.org installer:
+
+By default you do not get a python command. This can be changed by checking the "Add to PATH" option when installing.
+
+You will not get a python3 command.
+
+The "Python Launcher for Windows" will be installed as the py command.
+
+This can be used as an alternative to the "Add to PATH" option, which can have unintended side-effects (however these are minor).
+
+macOS
+Built-in
+Newer versions of macOS ship with a version of Python 3 built into the OS. This will be outdated, however it is likely new enough for FRC, assuming you keep the OS up-to-date.
+
+macOS 11 (Big Sur) shipped with Python 3.8.
+
+Homebrew
+Homebrew is a popular package manager for macOS.
+
+If you do not already have Homebrew installed:
+
+Open the Terminal app.
+
+Visit https://brew.sh in your browser and follow the instructions provided.
+
+Run brew upgrade on a regular basis to keep everything up-to-date.
+
+To install Python using Homebrew:
+
+Run brew install python in your terminal.
+
+You should now have python and python3 commands available and up-to-date.
+
+From Python.org
+This is not recommended by the macOS users on the team, however it is an option. This method of installation makes it difficult to uninstall later, which means it is difficult to update.
+
+Linux
+Please install python3 from your package manager. If you require more instruction here, please contact a mentor to add instructions for your distro.
+
+Installing Python Libraries
+Follow the instructions for your appropriate operating system, which can be found here. Follow the steps in Install Robotpy to get the basic required packages. Further usage of the tools alongside our code lives with the README of each repository.
+
+Text editor setup
+Any text editor should work, but it should have syntax highlighting (coloured text), linting (automatically flagging errors), and autocomplete. Many team members use Visual Studio Code (Vscode), which can be downloaded here.
+
+Note for Vscode users:
+
+Have a look around at the extensions available for themes and other things to make your life easier
+
+Download the Python extension for Python language support
+
+Download the Live Share extension to make pair programming with a fellow student or mentor easier
