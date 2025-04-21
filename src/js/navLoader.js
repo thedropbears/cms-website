@@ -9,7 +9,7 @@ export async function loadNavigation() {
     if (!navPlaceholder) return;
 
     try {
-        const response = await fetch('src/components/nav.html');
+        const response = await fetch('/src/components/nav.html');
         const html = await response.text();
         navPlaceholder.innerHTML = html;
 

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - The Drop Bears</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="/src/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Noticeboard Admin</h1>
+        
+        <div class="admin-form">
+            <h2>Add/Edit Notice</h2>
+            <form id="noticeForm">
+                <div class="form-group">
+                    <label for="noticeTitle">Title</label>
+                    <input type="text" id="noticeTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="noticeDate">Date</label>
+                    <input type="text" id="noticeDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="noticeContent">Content (HTML supported)</label>
+                    <textarea id="noticeContent" required></textarea>
+                </div>
+                
+                <input type="hidden" id="noticeIndex" value="">
+                <button type="submit" id="submitBtn">Add Notice</button>
+                <button type="button" id="cancelBtn" style="display:none;background-color:#777">Cancel</button>
+            </form>
+        </div>
+        
+        <div class="notice-list">
+            <h2>Current Notices</h2>
+            <div id="noticesList">
+                <!-- Notices will be loaded here -->
+                <p>Loading...</p>
+            </div>
+        </div>
+        
+        <div class="admin-notes">
+            <h3>Notes:</h3>
+            <p>this does not do anything yet. it's just a demo. it needs to have some sort of authentication with google or somehting</p>
+            <p>Currently, this demo stores the notices in your browser's local storage</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noticeForm = document.getElementById('noticeForm');
+            const noticesList = document.getElementById('noticesList');
+            const noticeTitle = document.getElementById('noticeTitle');
+            const noticeDate = document.getElementById('noticeDate');
+            const noticeContent = document.getElementById('noticeContent');
+            const noticeIndex = document.getElementById('noticeIndex');
+            const submitBtn = document.getElementById('submitBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            
+            // Set today's date as default
+            const today = new Date();
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            noticeDate.value = `${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+            
+            // Load notices from JSON file
+            loadNotices();
+            
+            // Handle form submission
+            noticeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!noticeTitle.value || !noticeDate.value || !noticeContent.value) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+                
+                // Get current notices
+                let notices = JSON.parse(localStorage.getItem('notices') || '[]');
+                
+                const notice = {
+                    title: noticeTitle.value,
+                    date: noticeDate.value,
+                    content: noticeContent.value
+                };
+                
+                if (noticeIndex.value === '') {
+                    // Add new notice
+                    notices.unshift(notice); // Add to beginning of array
+                } else {
+                    // Update existing notice
+                    notices[parseInt(noticeIndex.value)] = notice;
+                }
+                
+                // Save to local storage
+                localStorage.setItem('notices', JSON.stringify(notices));
+                
+                // Reset form and update UI
+                resetForm();
+                displayNotices(notices);
+                
+                // Also update the JSON file (in a real app, this would be a server API call)
+                updateJSONFile(notices);
+            });
+            
+            // Handle cancel button
+            cancelBtn.addEventListener('click', function() {
+                resetForm();
+            });
+            
+            function resetForm() {
+                noticeTitle.value = '';
+                noticeDate.value = `${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+                noticeContent.value = '';
+                noticeIndex.value = '';
+                submitBtn.textContent = 'Add Notice';
+                cancelBtn.style.display = 'none';
+            }
+            
+            function loadNotices() {
+                fetch('/src/data/notices.json')
+                    .then(response => response.json())
+                    .then(notices => {
+                        // Store notices in local storage
+                        localStorage.setItem('notices', JSON.stringify(notices));
+                        displayNotices(notices);
+                    })
+                    .catch(error => {
+                        console.error('Error loading notices:', error);
+                        noticesList.innerHTML = '<p>Error loading notices. Please try again later.</p>';
+                    });
+            }
+            
+            function displayNotices(notices) {
+                if (notices.length === 0) {
+                    noticesList.innerHTML = '<p>No notices available.</p>';
+                    return;
+                }
+                
+                noticesList.innerHTML = '';
+                
+                notices.forEach((notice, index) => {
+                    const noticeItem = document.createElement('div');
+                    noticeItem.className = 'notice-item';
+                    
+                    const noticeActions = document.createElement('div');
+                    noticeActions.className = 'notice-actions';
+                    
+                    const editButton = document.createElement('button');
+                    editButton.className = 'action-button';
+                    editButton.textContent = 'Edit';
+                    editButton.addEventListener('click', () => editNotice(index));
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'action-button';
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', () => deleteNotice(index));
+                    
+                    noticeActions.appendChild(editButton);
+                    noticeActions.appendChild(deleteButton);
+                    
+                    const noticeHTML = `
+                        <div class="notice-date">${notice.date}</div>
+                        <div class="notice-title">${notice.title}</div>
+                        <div class="notice-content">${notice.content}</div>
+                    `;
+                    
+                    noticeItem.innerHTML = noticeHTML;
+                    noticeItem.appendChild(noticeActions);
+                    
+                    noticesList.appendChild(noticeItem);
+                });
+            }
+            
+            function editNotice(index) {
+                const notices = JSON.parse(localStorage.getItem('notices'));
+                const notice = notices[index];
+                
+                noticeTitle.value = notice.title;
+                noticeDate.value = notice.date;
+                noticeContent.value = notice.content;
+                noticeIndex.value = index;
+                
+                submitBtn.textContent = 'Update Notice';
+                cancelBtn.style.display = 'inline-block';
+                
+                // Scroll to form
+                document.querySelector('.admin-form').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function deleteNotice(index) {
+                if (confirm('Are you sure you want to delete this notice?')) {
+                    const notices = JSON.parse(localStorage.getItem('notices'));
+                    notices.splice(index, 1);
+                    
+                    localStorage.setItem('notices', JSON.stringify(notices));
+                    displayNotices(notices);
+                    
+                    // Also update the JSON file (in a real app, this would be a server API call)
+                    updateJSONFile(notices);
+                }
+            }
+            
+            function updateJSONFile(notices) {
+                // In a real application, this would be an API call to update the server-side JSON file
+                console.log('In a real app, this would update the JSON file on the server:', notices);
+                alert('Changes saved to browser storage. In a real app, these would be saved to the server.');
+                
+                // For demonstration, we're just showing what would happen
+                // In a real app with proper backend, you would make an API call here
+            }
+        });
+    </script>
+</body>
+</html> 

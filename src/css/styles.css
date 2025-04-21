@@ -545,3 +545,103 @@ button {
         grid-template-columns: repeat(auto-fit, 300px);
     }
 }
+
+/* ==========================================================================
+   Admin Page Styles
+   ========================================================================== */
+.admin-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.admin-form {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.admin-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.admin-form input[type="text"], .admin-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Geist Mono', monospace;
+}
+
+.admin-form textarea {
+    min-height: 100px;
+}
+
+.admin-form button {
+    padding: 10px 20px;
+    background-color: #0a5688;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Geist Mono', monospace;
+}
+
+.admin-form button:hover {
+    background-color: #083f66;
+}
+
+.cancel-btn {
+    background-color: #777 !important;
+}
+
+.cancel-btn:hover {
+    background-color: #555 !important;
+}
+
+.notice-list {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.notice-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.notice-item:last-child {
+    border-bottom: none;
+}
+
+.notice-actions {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    color: #0a5688;
+    font-size: 14px;
+}
+
+.action-button:hover {
+    text-decoration: underline;
+}
+
+.admin-notes {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
