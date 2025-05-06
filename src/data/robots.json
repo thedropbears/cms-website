@@ -4,7 +4,7 @@
     "gameName": "REEFSCAPE",
     "robotName": "Barotrauma",
     "description": "Barotrauma was our innovative robot for the 2025 REEFSCAPE game. It featured an algae shooter, a hanging mechanism, and an algae intake system. Key features included a tilting shooter for compact design, turreted cameras for localization, and the ability to deposit coral in auto. We focused on an algae strategy and optimized our climber for maximum endgame points.",
-    "image": "assets/media/robot-2025.jpg",
+    "image": "/assets/media/robot-2025.jpg",
     "awards": [
         "Creativity Award sponsored by Rockwell Automation"
     ]
@@ -14,7 +14,7 @@
     "gameName": "Charged Up",
     "robotName": "Lenny Grabitz & The Cube Hammer",
     "description": "For the 2023 CHARGED UP season, we took on the challenge with two robots! Lenny Grabitz featured an arm rotation and extension with an end effector capable of handling both cubes and cones. The Cube Hammer showcased a redesigned game piece handling inspired by 2022, incorporating a shooter, tilt, and turret. Both robots shared an over-bumper intake and utilized April Tags for advanced localization and targeting. It was a massive effort with our rookie cohort and returning members!",
-    "image": "assets/media/robot-2023.png",
+    "image": "/assets/media/robot-2023.png",
     "awards": [
         "Lenny Grabitz: 3rd place at Southern Cross Regional",
         "The Cube Hammer: Winner of Macquarie University's “Duel Down Under"
