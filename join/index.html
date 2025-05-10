@@ -28,20 +28,6 @@
             </div> -->
         </section>
     </div>
-
-    <script>
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const team = urlParams.get('team');
-            
-            if (team) {
-                const teamSelect = document.querySelector('select[name="team"]');
-                if (teamSelect) {
-                    teamSelect.value = team;
-                }
-            }
-        }
-    </script>
         <script src="/src/js/navLoader.js" type="module"></script>
         <script src="/src/js/scrollEffects.js" type="module"></script>
 </body>
