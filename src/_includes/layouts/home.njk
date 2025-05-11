@@ -1,0 +1,126 @@
+---
+layout: base.njk
+---
+
+<!-- Hero Section -->
+<section class="relative">
+  <div class="bg-primary">
+    <div class="container mx-auto px-6 py-12 md:py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="text-white">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">The Drop Bears</h1>
+          <p class="text-xl mb-6">FRC Team 4774 - Sydney, Australia</p>
+          <p class="mb-8">We're a FIRST Robotics Competition team inspiring students in STEM through competitive robotics.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/about/" class="inline-block px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-yellow-500 transition">
+              About Us
+            </a>
+            <a href="/join/" class="inline-block px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-100 transition">
+              Join Our Team
+            </a>
+          </div>
+        </div>
+        <div>
+          <img src="/static/img/hero-robot.jpg" alt="The Drop Bears Robot" class="rounded-lg shadow-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do Section -->
+<section class="py-12 md:py-24">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-primary text-center mb-12">What We Do</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary">
+        <i class="ph ph-shield w-12 h-12 text-primary mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Build Robots</h3>
+        <p>We design, build, and program competitive robots for the FIRST Robotics Competition, learning real-world engineering skills.</p>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-accent">
+        <i class="ph ph-info w-12 h-12 text-accent mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Compete Globally</h3>
+        <p>We participate in regional and international competitions, representing Australia on the world stage of STEM education.</p>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary">
+        <i class="ph ph-keyboard w-12 h-12 text-primary mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Inspire Others</h3>
+        <p>We engage with our community through outreach programs, mentoring, and promoting STEM education to inspire the next generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Notices -->
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-primary">Team Notices</h2>
+      <a href="/notices/" class="text-primary hover:text-accent">View All</a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% set latestNotices = collections.notices | sort(true, false, 'date') | slice(0, 4) %}
+      {% for notice in latestNotices %}
+        <div class="bg-white border {% if notice.data.important %}border-accent{% else %}border-gray-200{% endif %} rounded-lg shadow-md overflow-hidden">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-lg font-bold {% if notice.data.important %}text-accent{% else %}text-primary{% endif %}">
+                {{ notice.data.title }}
+                {% if notice.data.important %}
+                  <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-white">
+                    Important
+                  </span>
+                {% endif %}
+              </h3>
+              <time class="text-gray-500 text-sm" datetime="{{ notice.data.date | machineDate }}">
+                {{ notice.data.date | readableDate }}
+              </time>
+            </div>
+            
+            <div class="prose prose-sm line-clamp-3">
+              {{ notice.templateContent | safe }}
+            </div>
+            
+            <a href="{{ notice.url }}" class="mt-4 inline-block text-primary hover:text-accent">Read More</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Team Calendar -->
+<section class="py-12 md:py-24">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-primary text-center mb-8">Our Calendar</h2>
+    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Stay up to date with team meetings, build sessions, competitions, and outreach events.</p>
+    
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="responsive-iframe">
+        <iframe src="https://calendar.google.com/calendar/embed?src=thedropbears.org.au_7nar1flo0q3v73nth317l4hnr4%40group.calendar.google.com&ctz=Australia%2FSydney" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .responsive-iframe {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  .responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style> 

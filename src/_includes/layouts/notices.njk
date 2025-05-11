@@ -1,0 +1,33 @@
+---
+layout: base.njk
+---
+
+<div class="container mx-auto px-6 py-8 md:py-12">
+  <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Team Notices</h1>
+  
+  <div class="space-y-6">
+    {% for notice in collections.notices | sort(true, false, 'date') %}
+      <div class="bg-white border {% if notice.data.important %}border-accent{% else %}border-gray-200{% endif %} rounded-lg shadow-md overflow-hidden">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-xl font-bold {% if notice.data.important %}text-accent{% else %}text-primary{% endif %}">
+              {{ notice.data.title }}
+              {% if notice.data.important %}
+                <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-white">
+                  Important
+                </span>
+              {% endif %}
+            </h2>
+            <time class="text-gray-500 text-sm" datetime="{{ notice.data.date | machineDate }}">
+              {{ notice.data.date | readableDate }}
+            </time>
+          </div>
+          
+          <div class="prose">
+            {{ notice.templateContent | safe }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div> 

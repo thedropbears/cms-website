@@ -1,0 +1,40 @@
+---
+layout: base.njk
+---
+
+<div class="container mx-auto px-6 py-8 md:py-12">
+  <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Our Sponsors</h1>
+  
+  <div class="prose prose-lg max-w-none mb-8">
+    {{ content | safe }}
+  </div>
+  
+  {% set sponsorTiers = ["Platinum", "Gold", "Silver", "Bronze", "Supporter"] %}
+  
+  {% for tier in sponsorTiers %}
+    {% set tierSponsors = collections.sponsors | selectattr("data.tier", "eq", tier) %}
+    {% if tierSponsors.length %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">{{ tier }} Sponsors</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{% if tier == "Platinum" %}2{% elif tier == "Gold" %}3{% else %}4{% endif %} gap-6">
+          {% for sponsor in tierSponsors %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 {% if tier == 'Platinum' %}col-span-full lg:col-span-1{% endif %} flex flex-col items-center justify-center">
+              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
+                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto {% if tier == 'Platinum' %}max-h-48{% elif tier == 'Gold' %}max-h-36{% else %}max-h-24{% endif %}">
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  
+  <div class="mt-12 bg-gray-50 rounded-lg p-8 shadow-inner">
+    <h2 class="text-2xl font-bold text-primary mb-4">Become a Sponsor</h2>
+    <p class="text-lg mb-6">Interested in supporting our team? We offer various sponsorship tiers and benefits.</p>
+    <a href="/contact/" class="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
+      Contact Us
+    </a>
+  </div>
+</div> 

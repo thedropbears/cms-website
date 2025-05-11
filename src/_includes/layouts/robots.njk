@@ -1,0 +1,38 @@
+---
+layout: base.njk
+---
+
+<div class="container mx-auto px-6 py-8 md:py-12">
+  <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Our Robots</h1>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for robot in collections.robots | sort(false, false, 'year') | reverse %}
+      <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
+        <img src="{{ robot.data.image }}" alt="{{ robot.data.robotName }}" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h2 class="text-2xl font-bold text-primary">{{ robot.data.robotName }}</h2>
+          <p class="text-gray-600">{{ robot.data.year }} - {{ robot.data.gameName }}</p>
+          
+          {% if robot.data.awards.length %}
+            <div class="mt-3">
+              <h3 class="text-lg font-semibold text-gray-800">Awards</h3>
+              <ul class="list-disc list-inside text-sm text-gray-600">
+                {% for award in robot.data.awards %}
+                  <li>{{ award.award }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+          
+          <div class="mt-4 text-sm">
+            <p>{{ robot.data.description | truncate(150) }}</p>
+          </div>
+          
+          <a href="{{ robot.url }}" class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-blue-800 transition">
+            Learn More
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div> 

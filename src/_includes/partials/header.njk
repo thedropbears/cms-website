@@ -1,0 +1,38 @@
+<header class="border-b border-gray-200">
+  <div class="container mx-auto px-6 py-3">
+    <nav class="flex flex-wrap items-center justify-between" x-data="{ isOpen: false }">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/static/img/logo.png" alt="{{ settings.name }}" class="h-10 mr-3">
+        <span class="self-center text-xl font-semibold whitespace-nowrap text-primary">{{ settings.name }}</span>
+      </a>
+
+      <!-- Mobile menu button -->
+      <button @click="isOpen = !isOpen" 
+              type="button" 
+              class="md:hidden inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" 
+              aria-controls="navbar-main" 
+              aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <!-- Icon when menu is closed -->
+        <i class="ph ph-list w-6 h-6" x-show="!isOpen"></i>
+        <!-- Icon when menu is open -->
+        <i class="ph ph-x w-6 h-6" x-show="isOpen"></i>
+      </button>
+
+      <!-- Navigation menu -->
+      <div class="w-full md:block md:w-auto" id="navbar-main" x-show="isOpen || window.innerWidth >= 768" x-transition>
+        <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:font-medium">
+          {% for item in navigation.items %}
+            <li>
+              <a href="{{ item.url }}" 
+                class="block py-2 pr-4 pl-3 {% if page.url == item.url %}text-accent font-bold{% else %}text-gray-700 hover:text-primary{% endif %} rounded md:p-0">
+                {{ item.text }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header> 
