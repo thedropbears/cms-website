@@ -3,6 +3,15 @@ const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
 const Image = require("@11ty/eleventy-img");
+const { toHTML } = require('@portabletext/to-html');
+const portableTextToHtml = require("./src/_utils/sanityPortableText");
+const { 
+  getAllPages, 
+  getAllRobots, 
+  getAllSponsors, 
+  getAllPosts,
+  getAllNotices 
+} = require("./src/_utils/sanity");
 
 // Image shortcode for responsive images
 async function imageShortcode(src, alt, sizes = "100vw") {
@@ -60,6 +69,9 @@ module.exports = function (eleventyConfig) {
     return array.slice(start, end);
   });
 
+  // Portable Text filter
+  eleventyConfig.addFilter("portableText", portableTextToHtml);
+
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -68,20 +80,24 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
 
   // Add collections
-  eleventyConfig.addCollection("pages", function(collection) {
-    return collection.getFilteredByGlob("src/_pages/*.md");
+  eleventyConfig.addCollection("pages", async () => {
+    return await getAllPages();
   });
-  
-  eleventyConfig.addCollection("robots", function(collection) {
-    return collection.getFilteredByGlob("src/_robots/*.md");
+
+  eleventyConfig.addCollection("robots", async () => {
+    return await getAllRobots();
   });
-  
-  eleventyConfig.addCollection("sponsors", function(collection) {
-    return collection.getFilteredByGlob("src/_sponsors/*.md");
+
+  eleventyConfig.addCollection("sponsors", async () => {
+    return await getAllSponsors();
   });
-  
-  eleventyConfig.addCollection("notices", function(collection) {
-    return collection.getFilteredByGlob("src/_notices/*.md");
+
+  eleventyConfig.addCollection("posts", async () => {
+    return await getAllPosts();
+  });
+
+  eleventyConfig.addCollection("notices", async () => {
+    return await getAllNotices();
   });
 
   // Copy Static Files to /_Site

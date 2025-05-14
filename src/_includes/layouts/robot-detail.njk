@@ -6,14 +6,16 @@ layout: base.njk
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <!-- Robot Image -->
     <div>
-      <img src="{{ image }}" alt="{{ robotName }}" class="w-full h-auto rounded-lg shadow-md">
+      {% if image %}
+        <img src="{{ image }}" alt="{{ title }}" class="w-full h-auto rounded-lg shadow-md">
+      {% endif %}
       
-      {% if awards.length %}
+      {% if awards and awards.length %}
         <div class="mt-6 bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h3 class="text-xl font-bold text-primary mb-4">Awards</h3>
           <ul class="list-disc list-inside text-gray-700 space-y-2">
             {% for award in awards %}
-              <li>{{ award.award }}</li>
+              <li>{{ award }}</li>
             {% endfor %}
           </ul>
         </div>
@@ -28,18 +30,15 @@ layout: base.njk
         <span class="text-gray-600">{{ gameName }}</span>
       </div>
       
-      <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6">{{ robotName }}</h1>
+      <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6">{{ title }}</h1>
+      
+      {% if description %}
+        <p class="text-lg text-gray-600 mb-6">{{ description }}</p>
+      {% endif %}
       
       <div class="prose prose-lg max-w-none">
-        {{ content | safe }}
-      </div>
-      
-      <div class="mt-8">
-        <a href="/robots/" class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition">
-          <i class="ph ph-arrow-left w-4 h-4 mr-2"></i>
-          Back to Robots
-        </a>
+        {{ body | portableText | safe }}
       </div>
     </div>
   </div>
-</div> 
+</div>
