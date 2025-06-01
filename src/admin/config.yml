@@ -1,7 +1,9 @@
 backend:
   # Use netlify identity as backend
   name: git-gateway
-  branch: main
+  branch: master
+  # name: github
+  # repo: dropbears/cms-website
 media_folder: "src/static/img"
 public_folder: "/static/img"
 
@@ -9,43 +11,82 @@ public_folder: "/static/img"
 local_backend: true
 publish_mode: editorial_workflow
 collections:
-  - name: "pages"
-    label: "Pages"
+  - label: "Pages"
+    name: "pages"
     folder: "src/_pages"
     create: true
-    slug: "{{slug}}"
+    editor:
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.njk" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Date", name: "date", widget: "datetime" }
-  - name: "robots"
-    label: "Robots"
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      
+  - label: "Robots"
+    name: "robots"
     folder: "src/_robots"
     create: true
-    slug: "{{slug}}"
+    editor:
+      preview: true
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Game Name", name: "gameName", widget: "string" }
+      - { label: "Robot Name", name: "robotName", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Date", name: "date", widget: "datetime" }
-  - name: "sponsors"
-    label: "Sponsors"
+      - { label: "Awards", name: "awards", widget: "list", required: false, field: { label: "Award", name: "award", widget: "string" } }
+      
+  - label: "Sponsors"
+    name: "sponsors"
     folder: "src/_sponsors"
     create: true
-    slug: "{{slug}}"
+    editor:
+      preview: true
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Logo", name: "logo", widget: "image" }
-      - { label: "Website", name: "website", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Date", name: "date", widget: "datetime" }
-  - name: "notices"
-    label: "Notices"
+      - { label: "Link", name: "link", widget: "string" }
+      - { label: "Tier", name: "tier", widget: "select", options: ["Platinum", "Gold", "Silver", "Bronze", "Supporter"] }
+      
+  - label: "Notices"
+    name: "notices"
     folder: "src/_notices"
     create: true
-    slug: "{{slug}}"
+    editor:
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Important", name: "important", widget: "boolean", default: false, required: false }
+
+  - label: "Settings"
+    name: "settings"
+    editor:
+      preview: false
+    files:
+      - label: "Navigation"
+        name: "items"
+        file: "src/_data/navigation.yaml"
+        fields:
+          - label: Nav Items
+            name: items
+            widget: list
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: Title, name: text, widget: string }
+              - { label: URL, name: url, widget: string }
+              
+      - label: "Meta Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        fields:
+          - { label: "Site Name", name: "name", widget: "string", default: "The Drop Bears" }
+          - { label: "Site Description", name: "description", widget: "string" }
+          - { label: "Author", name: "author", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Default OG Image", name: "ogImage", widget: "image", required: false }
