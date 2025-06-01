@@ -6,27 +6,28 @@ layout: base.njk
   <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Team Notices</h1>
   
   <div class="space-y-6">
-    {% for notice in notices | sort(true, false, 'publishedAt') %}
-      <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
+    {% for notice in collections.notices | sort(true, false, 'date') %}
+      <div class="bg-white border {% if notice.data.important %}border-accent{% else %}border-gray-200{% endif %} rounded-lg shadow-md overflow-hidden">
         <div class="p-6">
           <div class="flex items-center justify-between mb-3">
-            <h2 class="text-xl font-bold text-primary">
-              {{ notice.title }}
+            <h2 class="text-xl font-bold {% if notice.data.important %}text-accent{% else %}text-primary{% endif %}">
+              {{ notice.data.title }}
+              {% if notice.data.important %}
+                <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-white">
+                  Important
+                </span>
+              {% endif %}
             </h2>
-            <time class="text-gray-500 text-sm" datetime="{{ notice.publishedAt }}">
-              {{ notice.publishedAt | readableDate }}
+            <time class="text-gray-500 text-sm" datetime="{{ notice.data.date | machineDate }}">
+              {{ notice.data.date | readableDate }}
             </time>
           </div>
           
-          {% if notice.image %}
-            <img src="{{ notice.image }}" alt="" class="w-full h-48 object-cover rounded-lg mb-4">
-          {% endif %}
-          
-          <div class="prose prose-lg max-w-none">
-            {{ notice.body | portableText | safe }}
+          <div class="prose">
+            {{ notice.templateContent | safe }}
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
-</div>
+</div> 

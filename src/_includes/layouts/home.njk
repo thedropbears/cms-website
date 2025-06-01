@@ -8,8 +8,9 @@ layout: base.njk
     <div class="container mx-auto px-6 py-12 md:py-24">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div class="text-white">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ settings.name }}</h1>
-          <p class="text-xl mb-6">{{ settings.description }}</p>
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">The Drop Bears</h1>
+          <p class="text-xl mb-6">FRC Team 4774 - Sydney, Australia</p>
+          <p class="mb-8">We're a FIRST Robotics Competition team inspiring students in STEM through competitive robotics.</p>
           <div class="flex flex-wrap gap-4">
             <a href="/about/" class="inline-block px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-yellow-500 transition">
               About Us
@@ -20,101 +21,78 @@ layout: base.njk
           </div>
         </div>
         <div>
-          {% if settings.ogImage %}
-            <img src="{{ settings.ogImage }}" alt="{{ settings.name }}" class="rounded-lg shadow-lg">
-          {% endif %}
+          <img src="/static/img/hero-robot.jpg" alt="The Drop Bears Robot" class="rounded-lg shadow-lg">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Latest Robots Section -->
-{% if robots.length %}
-<section class="py-12 bg-gray-50">
+<!-- What We Do Section -->
+<section class="py-12 md:py-24">
   <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-primary mb-8">Our Latest Robots</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {% for robot in robots | sort(true, false, 'year') | limit(3) %}
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          {% if robot.mainImage %}
-            <img src="{{ robot.mainImage }}" alt="{{ robot.title }}" class="w-full h-48 object-cover">
-          {% endif %}
-          <div class="p-6">
-            <div class="flex items-center mb-2">
-              <span class="text-sm font-medium bg-accent text-white px-2 py-1 rounded-full">{{ robot.year }}</span>
-              <span class="ml-2 text-gray-600">{{ robot.gameName }}</span>
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-2">{{ robot.title }}</h3>
-            <p class="text-gray-600 mb-4">{{ robot.description }}</p>
-            <a href="/robots/{{ robot.slug }}" class="text-primary hover:text-accent">Learn More →</a>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="text-center mt-8">
-      <a href="/robots/" class="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition">
-        View All Robots
-      </a>
+    <h2 class="text-3xl font-bold text-primary text-center mb-12">What We Do</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary">
+        <i class="ph ph-shield w-12 h-12 text-primary mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Build Robots</h3>
+        <p>We design, build, and program competitive robots for the FIRST Robotics Competition, learning real-world engineering skills.</p>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-accent">
+        <i class="ph ph-info w-12 h-12 text-accent mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Compete Globally</h3>
+        <p>We participate in regional and international competitions, representing Australia on the world stage of STEM education.</p>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary">
+        <i class="ph ph-keyboard w-12 h-12 text-primary mb-4"></i>
+        <h3 class="text-xl font-bold mb-2">Inspire Others</h3>
+        <p>We engage with our community through outreach programs, mentoring, and promoting STEM education to inspire the next generation.</p>
+      </div>
     </div>
   </div>
 </section>
-{% endif %}
 
-<!-- Latest Notices Section -->
-{% if notices.length %}
-<section class="py-12">
+<!-- Latest Notices -->
+<section class="py-12 bg-gray-50">
   <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-primary mb-8">Latest Notices</h2>
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-primary">Team Notices</h2>
+      <a href="/notices/" class="text-primary hover:text-accent">View All</a>
+    </div>
+    
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {% for notice in notices | sort(true, false, 'publishedAt') | limit(4) %}
-        <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6">
-          <div class="flex justify-between items-start mb-3">
-            <h3 class="text-xl font-bold text-primary">{{ notice.title }}</h3>
-            <time class="text-sm text-gray-500">{{ notice.publishedAt | readableDate }}</time>
-          </div>
-          {% if notice.image %}
-            <img src="{{ notice.image }}" alt="" class="w-full h-48 object-cover rounded-lg mb-4">
-          {% endif %}
-          <div class="prose prose-sm">
-            {{ notice.body | portableText | safe }}
+      {% set latestNotices = collections.notices | sort(true, false, 'date') | slice(0, 4) %}
+      {% for notice in latestNotices %}
+        <div class="bg-white border {% if notice.data.important %}border-accent{% else %}border-gray-200{% endif %} rounded-lg shadow-md overflow-hidden">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-lg font-bold {% if notice.data.important %}text-accent{% else %}text-primary{% endif %}">
+                {{ notice.data.title }}
+                {% if notice.data.important %}
+                  <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-white">
+                    Important
+                  </span>
+                {% endif %}
+              </h3>
+              <time class="text-gray-500 text-sm" datetime="{{ notice.data.date | machineDate }}">
+                {{ notice.data.date | readableDate }}
+              </time>
+            </div>
+            
+            <div class="prose prose-sm line-clamp-3">
+              {{ notice.templateContent | safe }}
+            </div>
+            
+            <a href="{{ notice.url }}" class="mt-4 inline-block text-primary hover:text-accent">Read More</a>
           </div>
         </div>
       {% endfor %}
     </div>
-    <div class="text-center mt-8">
-      <a href="/notices/" class="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition">
-        View All Notices
-      </a>
-    </div>
   </div>
 </section>
-{% endif %}
-
-<!-- Sponsors Section -->
-{% if sponsors.length %}
-<section class="py-12 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-primary mb-8 text-center">Our Sponsors</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
-      {% for sponsor in sponsors | limit(6) %}
-        <div class="p-4">
-          {% if sponsor.logo %}
-            <a href="{{ sponsor.url }}" target="_blank" rel="noopener noreferrer">
-              <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" class="max-h-16 mx-auto">
-            </a>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-    <div class="text-center mt-8">
-      <a href="/sponsors/" class="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition">
-        View All Sponsors
-      </a>
-    </div>
-  </div>
-</section>
-{% endif %}
 
 <!-- Team Calendar -->
 <section class="py-12 md:py-24">
@@ -145,4 +123,4 @@ layout: base.njk
     height: 100%;
     border: 0;
   }
-</style>
+</style> 

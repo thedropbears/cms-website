@@ -3,19 +3,15 @@ layout: base.njk
 ---
 
 <div class="container mx-auto px-6 py-8 md:py-12">
-  {% if image %}
+  {% if featuredImage %}
     <div class="mb-8">
-      <img src="{{ image }}" alt="{{ title }}" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md">
+      <img src="{{ featuredImage }}" alt="{{ title }}" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md">
     </div>
   {% endif %}
   
   <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4">{{ title }}</h1>
   
-  {% if description %}
-    <p class="text-xl text-gray-600 mb-8">{{ description }}</p>
-  {% endif %}
-  
   <div class="prose prose-lg max-w-none">
-    {{ body | portableText | safe }}
+    {{ content | safe }}
   </div>
-</div>
+</div> 
