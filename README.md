@@ -49,10 +49,13 @@ For a complete list of available icons and more documentation:
 
 The site includes the following content collections:
 
-- **Pages**: Static pages like About, Join, etc.
-- **Robots**: Information about each year's robot
-- **Sponsors**: Team sponsors with logos and tiers
-- **Notices**: Team announcements and updates
+- Pages (`src/_pages/`)
+- Robots (`src/_robots/`)
+- Sponsors (`src/_sponsors/`)
+- Notices (`src/_notices/`)
+- Settings (`src/_data/`)
+
+**Blog posts have been removed from this site.**
 
 ## Development Setup
 
