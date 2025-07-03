@@ -1,14 +1,14 @@
 ---
 links:
-  - title: Netlify CMS
-    url: "https://www.netlifycms.org/"
-    desc: Open source content management for your Git workflow
+  - title: GitHub
+    url: "https://www.github.com/thedropbears"
+    desc: Our GitHub profile where you can find our projects.
   - title: Eleventy
     url: "https://www.11ty.dev/"
     desc: Eleventy is a simpler static site generator.
-  - title: Alpine.js
-    url: "https://github.com/alpinejs/alpine"
-    desc: A minimal framework for composing JavaScript behavior in your markup.
-  - title: Tailwind CSS
-    url: "https://tailwindcss.com/"
-    desc: A utility-first CSS framework for rapidly building custom designs.
+  - title: YouTube
+    url: "https://www.youtube.com/@thedropbears"
+    desc: Watch our latest videos.
+  - title: Instagram
+    url: "https://www.instagram.com/frc_thedropbears"
+    desc: Follow us on Instagram for updates and behind-the-scenes content.

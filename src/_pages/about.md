@@ -6,8 +6,6 @@ permalink: /about/
 featuredImage: /static/img/team-photo.jpg
 ---
 
-# About Us
-
 ## About the Drop Bears
 
 We are a team of high school students, sharing our passion for STEM. Split into sub-teams and with support from our industry-skilled mentors, we compete in the worldwide, annual FIRST Robotics Competition.

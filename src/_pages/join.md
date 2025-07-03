@@ -5,8 +5,6 @@ layout: layouts/page.njk
 permalink: /join/
 ---
 
-# Join The Drop Bears
-
 We're always looking for enthusiastic students to join our team! The Drop Bears welcome students from all backgrounds, with or without prior experience in robotics, programming, or engineering.
 
 ## Who Can Join?
