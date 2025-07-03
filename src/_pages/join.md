@@ -44,6 +44,6 @@ There are many ways to contribute to The Drop Bears:
 
 ## Meeting Schedule
 
-- **Regular Meetings**: Satudays 11AM-4PM and Every second Thursdas, 4-8PM
+- **Regular Meetings**: Satudays 11AM-4PM and every second Thursdays, 4-8PM
 - **Build Season (January-February)**: Additional weekday sessions
 - **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
