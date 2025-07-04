@@ -9,26 +9,105 @@ layout: base.njk
     {{ content | safe }}
   </div>
   
-  {% set sponsorTiers = ["Platinum", "Gold", "Silver", "Bronze", "Supporter"] %}
+  {% set platinumSponsors = [] %}
+  {% set goldSponsors = [] %}
+  {% set silverSponsors = [] %}
+  {% set bronzeSponsors = [] %}
+  {% set supporterSponsors = [] %}
   
-  {% for tier in sponsorTiers %}
-    {% set tierSponsors = collections.sponsors | selectattr("data.tier", "eq", tier) %}
-    {% if tierSponsors.length %}
-      <div class="mb-12">
-        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">{{ tier }} Sponsors</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{% if tier == "Platinum" %}2{% elif tier == "Gold" %}3{% else %}4{% endif %} gap-6">
-          {% for sponsor in tierSponsors %}
-            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 {% if tier == 'Platinum' %}col-span-full lg:col-span-1{% endif %} flex flex-col items-center justify-center">
-              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
-                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto {% if tier == 'Platinum' %}max-h-48{% elif tier == 'Gold' %}max-h-36{% else %}max-h-24{% endif %}">
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
+  {% for sponsor in collections.sponsors %}
+    {% if sponsor.data.tier == "Platinum" %}
+      {% set platinumSponsors = (platinumSponsors.push(sponsor), platinumSponsors) %}
+    {% elif sponsor.data.tier == "Gold" %}
+      {% set goldSponsors = (goldSponsors.push(sponsor), goldSponsors) %}
+    {% elif sponsor.data.tier == "Silver" %}
+      {% set silverSponsors = (silverSponsors.push(sponsor), silverSponsors) %}
+    {% elif sponsor.data.tier == "Bronze" %}
+      {% set bronzeSponsors = (bronzeSponsors.push(sponsor), bronzeSponsors) %}
+    {% elif sponsor.data.tier == "Supporter" %}
+      {% set supporterSponsors = (supporterSponsors.push(sponsor), supporterSponsors) %}
     {% endif %}
   {% endfor %}
+  
+  {% if platinumSponsors.length %}
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Platinum Sponsors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {% for sponsor in platinumSponsors %}
+          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 col-span-full lg:col-span-1 flex flex-col items-center justify-center">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
+              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-48">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  
+  {% if goldSponsors.length %}
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Gold Sponsors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for sponsor in goldSponsors %}
+          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
+              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-36">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  
+  {% if silverSponsors.length %}
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Silver Sponsors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {% for sponsor in silverSponsors %}
+          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
+              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  
+  {% if bronzeSponsors.length %}
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Bronze Sponsors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {% for sponsor in bronzeSponsors %}
+          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
+              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  
+  {% if supporterSponsors.length %}
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Supporter Sponsors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {% for sponsor in supporterSponsors %}
+          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
+              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
   
   <div class="mt-12 bg-gray-50 rounded-lg p-8 shadow-inner">
     <h2 class="text-2xl font-bold text-primary mb-4">Become a Sponsor</h2>
