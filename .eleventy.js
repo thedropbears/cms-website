@@ -92,6 +92,13 @@ module.exports = function (eleventyConfig) {
       "./static/css/prism-tomorrow.css",
     "./node_modules/@phosphor-icons/web/src/regular/style.css": "./static/css/phosphor-regular.css",
     "./node_modules/@phosphor-icons/web/src/fill/style.css": "./static/css/phosphor-fill.css",
+    // Copy Phosphor font files
+    "./node_modules/@phosphor-icons/web/src/regular/Phosphor.woff2": "./static/css/Phosphor.woff2",
+    "./node_modules/@phosphor-icons/web/src/regular/Phosphor.woff": "./static/css/Phosphor.woff",
+    "./node_modules/@phosphor-icons/web/src/regular/Phosphor.ttf": "./static/css/Phosphor.ttf",
+    "./node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.woff2": "./static/css/Phosphor-Fill.woff2",
+    "./node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.woff": "./static/css/Phosphor-Fill.woff",
+    "./node_modules/@phosphor-icons/web/src/fill/Phosphor-Fill.ttf": "./static/css/Phosphor-Fill.ttf",
   });
 
   // Copy Image Folder to /_site
