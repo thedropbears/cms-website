@@ -14,7 +14,7 @@ We're always looking for enthusiastic students to join our team! The Drop Bears 
 - Interested in robotics, engineering, programming, design, business, marketing, or leadership
 - Willing to commit to team meetings and build sessions
 
-# Do I need previous robotics experience to join?
+### Do I need previous robotics experience to join?
 
 No experience is required to join but a passion for learning and a curious mind is essential.  If you do have some experience in programming, mechanical skills or project management then it will help you even more.
 

@@ -5,20 +5,6 @@
 <title>{% if title %}{{ title }} | {% endif %}{{ settings.name }}</title>
 <meta name="description" content="{% if description %}{{ description }}{% else %}{{ settings.description }}{% endif %}">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ settings.url }}{{ page.url }}">
-<meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ settings.name }}">
-<meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ settings.description }}{% endif %}">
-<meta property="og:image" content="{% if featuredImage %}{{ settings.url }}{{ featuredImage }}{% elif settings.ogImage %}{{ settings.url }}{{ settings.ogImage }}{% endif %}">
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ settings.url }}{{ page.url }}">
-<meta property="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ settings.name }}">
-<meta property="twitter:description" content="{% if description %}{{ description }}{% else %}{{ settings.description }}{% endif %}">
-<meta property="twitter:image" content="{% if featuredImage %}{{ settings.url }}{{ featuredImage }}{% elif settings.ogImage %}{{ settings.url }}{{ settings.ogImage }}{% endif %}">
-
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 

@@ -1,5 +1,11 @@
 module.exports = {
-  content: ["./**/*.html"],
+  content: [
+    "./src/**/*.{html,njk,md,js}",
+    "./src/_includes/**/*.{html,njk}",
+    "./src/_layouts/**/*.{html,njk}",
+    "./src/_pages/**/*.{html,md}",
+    "./src/_data/**/*.{js,json,yaml,yml}"
+  ],
   theme: {
     container: {
       center: true,
