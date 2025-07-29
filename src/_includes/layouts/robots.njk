@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 
-<div class="container mx-auto px-6 py-8 md:py-12">
+<div class="container mx-auto px-6 py-8 md:py-12" x-data="{ selectedRobot: null }">
   <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Our Robots</h1>
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -28,11 +28,91 @@ layout: base.njk
             <p>{{ robot.data.description | truncate(150) }}</p>
           </div>
           
-          <a href="{{ robot.url }}" class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-blue-800 transition">
+          <button 
+            @click="selectedRobot = {
+              name: '{{ robot.data.robotName }}',
+              year: '{{ robot.data.year }}',
+              game: '{{ robot.data.gameName }}',
+              image: '{{ robot.data.image }}',
+              description: `{{ robot.content | safe | replace('`', '\`') }}`,
+              awards: [{% for award in robot.data.awards %}{ award: '{{ award.award }}' }{% if not loop.last %},{% endif %}{% endfor %}]
+            }"
+            class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-blue-800 transition">
             Learn More
-          </a>
+          </button>
         </div>
       </div>
     {% endfor %}
   </div>
-</div> 
+
+  <!-- Modal -->
+  <div 
+    x-show="selectedRobot" 
+    x-cloak
+    @click.away="selectedRobot = null"
+    @keydown.escape.window="selectedRobot = null"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0">
+    
+    <div 
+      @click.stop
+      class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+      x-transition:enter="transition ease-out duration-300 transform"
+      x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-200 transform"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-6 border-b border-gray-200">
+        <div class="flex items-center">
+          <span x-text="selectedRobot?.year" class="text-sm font-medium bg-accent text-white px-3 py-1 rounded-full"></span>
+          <span class="mx-2 text-gray-400">—</span>
+          <span x-text="selectedRobot?.game" class="text-gray-600"></span>
+        </div>
+        <button 
+          @click="selectedRobot = null"
+          class="text-gray-400 hover:text-gray-600 transition">
+          <i class="ph ph-x w-6 h-6"></i>
+        </button>
+      </div>
+      
+      <!-- Modal Content -->
+      <div class="overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+          <!-- Robot Image -->
+          <div>
+            <img :src="selectedRobot?.image" :alt="selectedRobot?.name" class="w-full h-auto rounded-lg shadow-md">
+            
+            <!-- Awards in modal -->
+            <div x-show="selectedRobot?.awards?.length > 0" class="mt-6 bg-gray-50 rounded-lg p-6 border border-gray-200">
+              <h3 class="text-xl font-bold text-primary mb-4">Awards</h3>
+              <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <template x-for="award in selectedRobot?.awards" :key="award.award">
+                  <li x-text="award.award"></li>
+                </template>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Robot Info -->
+          <div>
+            <h1 x-text="selectedRobot?.name" class="text-3xl md:text-4xl font-bold text-primary mb-6"></h1>
+            
+            <div class="prose prose-lg max-w-none" x-html="selectedRobot?.description"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  [x-cloak] { display: none !important; }
+</style>
