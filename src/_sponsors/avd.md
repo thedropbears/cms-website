@@ -1,6 +1,6 @@
 ---
 name: Annandale Village Dentistry
-logo: /static/avd-logo.png
+logo: /static/img/avd-logo.png
 link: https://www.annandalevillagedentistry.com.au/
 tier: Platinum
 description: |

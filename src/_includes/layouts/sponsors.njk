@@ -36,8 +36,13 @@ layout: base.njk
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {% for sponsor in platinumSponsors %}
           <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 col-span-full lg:col-span-1 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
-              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-48">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full text-center">
+              {% if sponsor.data.logo %}
+                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-48" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="text-xl font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+              {% else %}
+                <div class="text-xl font-semibold text-primary">{{ sponsor.data.name }}</div>
+              {% endif %}
             </a>
           </div>
         {% endfor %}
@@ -52,8 +57,13 @@ layout: base.njk
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for sponsor in goldSponsors %}
           <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
-              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-36">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full text-center">
+              {% if sponsor.data.logo %}
+                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-36" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+              {% else %}
+                <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
+              {% endif %}
             </a>
           </div>
         {% endfor %}
@@ -68,8 +78,13 @@ layout: base.njk
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {% for sponsor in silverSponsors %}
           <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
-              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full text-center">
+              {% if sponsor.data.logo %}
+                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="text-base font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+              {% else %}
+                <div class="text-base font-semibold text-primary">{{ sponsor.data.name }}</div>
+              {% endif %}
             </a>
           </div>
         {% endfor %}
@@ -84,8 +99,13 @@ layout: base.njk
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {% for sponsor in bronzeSponsors %}
           <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
-              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full text-center">
+              {% if sponsor.data.logo %}
+                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="text-base font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+              {% else %}
+                <div class="text-base font-semibold text-primary">{{ sponsor.data.name }}</div>
+              {% endif %}
             </a>
           </div>
         {% endfor %}
@@ -100,8 +120,13 @@ layout: base.njk
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {% for sponsor in supporterSponsors %}
           <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full">
-              <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24">
+            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="block w-full h-full text-center">
+              {% if sponsor.data.logo %}
+                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="text-base font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+              {% else %}
+                <div class="text-base font-semibold text-primary">{{ sponsor.data.name }}</div>
+              {% endif %}
             </a>
           </div>
         {% endfor %}

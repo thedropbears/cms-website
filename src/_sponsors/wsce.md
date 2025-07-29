@@ -1,5 +1,6 @@
 ---
-logo: /static/wsce-logo.png
+name: Warren Smith Consulting Engineers
+logo: /static/img/wsce-logo.png
 link: https://www.warrensmith.com.au/
 tier: Platinum
 description: |

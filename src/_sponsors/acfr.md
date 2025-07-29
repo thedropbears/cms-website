@@ -1,6 +1,6 @@
 ---
 name: Australian Centre for Field Robotics (ACFR)
-logo: /static/acfr-logo.png
+logo: /static/img/acfr-logo.png
 link: https://www.sydney.edu.au/engineering/our-research/robotics-and-intelligent-systems/australian-centre-for-field-robotics.html
 tier: Platinum
 description: |
