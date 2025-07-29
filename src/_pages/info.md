@@ -1,20 +1,25 @@
 ---
-title: About The Drop Bears
+title: Info - The Drop Bears
 description: Learn more about FRC Team 4774, The Drop Bears, from Sydney, Australia
 layout: layouts/page.njk
-permalink: /about/
+permalink: /info/
 featuredImage: /static/img/team-photo.jpg
 ---
-
-## About the Drop Bears
+## About us
 
 We are a team of high school students, sharing our passion for STEM. Split into sub-teams and with support from our industry-skilled mentors, we compete in the worldwide, annual FIRST Robotics Competition.
 
 Our team is based at USYD in Sydney, Australia.
 
 ---
+## Meeting Schedule
 
-## SubTeams
+- **Regular Meetings**: Satudays 11AM-4PM and every second Thursdays, 4-8PM
+- **Build Season (January-February)**: Additional weekday sessions
+- **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
+---
+
+## Subteams
 
 ### Mechanical
 
@@ -54,3 +59,12 @@ Software students will be taught, over the course of the season:
 FIRST Robotics Competition (FRC) is a high school robotics competition that is held annually. It combines the excitement of sport with the rigors of science and technology. FRC is designed to help students explore science, technology, engineering, and mathematics (STEM) and to develop real-world skills for the future.
 
 {% youtube "Jd29kzjclV0", "What is FRC?" %}
+
+## What is Build Season?
+
+Build season starts around early January and finishes around the end of February. During this time, the team designs and builds the robot for the upcoming competition, which is usually in mid-March.
+
+## What is Off Season?
+
+Off-season is before build season. During the off-season, we recruit and teach rookies the skills they will need, and we work on long-term projects like getting sponsors and recruitment.
+

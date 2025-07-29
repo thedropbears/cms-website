@@ -3,7 +3,7 @@ items:
   - text: Home
     url: /
   - text: Info
-    url: /about/
+    url: /info/
   - text: Robots
     url: /robots/
   - text: Sponsors

@@ -14,6 +14,10 @@ We're always looking for enthusiastic students to join our team! The Drop Bears 
 - Interested in robotics, engineering, programming, design, business, marketing, or leadership
 - Willing to commit to team meetings and build sessions
 
+# Do I need previous robotics experience to join?
+
+No experience is required to join but a passion for learning and a curious mind is essential.  If you do have some experience in programming, mechanical skills or project management then it will help you even more.
+
 ## What Can You Do?
 
 There are many ways to contribute to The Drop Bears:
@@ -39,9 +43,3 @@ There are many ways to contribute to The Drop Bears:
 1. **Express Your Interest**: Fill out our [interest form](https://forms.example.com/dropbears-interest) to be notified about upcoming seasons.
 2. **Attend the Information Session**: We hold a information session at the end of each school year, about 3 months before the start of the season.
 3. **Attend our workshops**: We run 4 workshops for our students to get them up to speed.
-
-## Meeting Schedule
-
-- **Regular Meetings**: Satudays 11AM-4PM and every second Thursdays, 4-8PM
-- **Build Season (January-February)**: Additional weekday sessions
-- **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
