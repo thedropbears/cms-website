@@ -1,23 +1,16 @@
 ---
-title: Info - The Drop Bears
+title: About The Drop Bears
 description: Learn more about FRC Team 4774, The Drop Bears, from Sydney, Australia
 layout: layouts/page.njk
-permalink: /info/
+permalink: /about/
 featuredImage: /static/img/team-photo.jpg
 ---
+
 ## About us
 
 We are a team of high school students, sharing our passion for STEM. Split into sub-teams and with support from our industry-skilled mentors, we compete in the worldwide, annual FIRST Robotics Competition.
 
 Our team is based at USYD in Sydney, Australia.
-
----
-
-## Meeting Schedule
-
-- **Regular Meetings**: Satudays 11AM-4PM and every second Thursdays, 4-8PM
-- **Build Season (January-February)**: Additional weekday sessions
-- **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
 
 ---
 

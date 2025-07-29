@@ -23,16 +23,19 @@ No experience is required to join but a passion for learning and a curious mind 
 There are many ways to contribute to The Drop Bears:
 
 ### Mechanical Engineering
+
 - Design robot components using CAD
 - Operate machinery to build parts
 - Assemble and test mechanisms
 
 ### Electrical Engineering
+
 - Wire the robot's control and power systems
 - Work with sensors and actuators
 - Design and manufacture custom circuit boards
 
 ### Programming
+
 - Develop code for autonomous operation
 - Create driver controls
 - Implement computer vision systems
