@@ -91,13 +91,15 @@ layout: base.njk
       
       <!-- Modal Content -->
       <div class="overflow-y-auto max-h-[calc(90vh-120px)]">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
-          <!-- Robot Image -->
-          <div>
-            <img :src="selectedRobot?.image" :alt="selectedRobot?.name" class="w-full h-auto rounded-lg shadow-md">
+        <div class="p-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <!-- image -->
+            <div>
+              <img :src="selectedRobot?.image" :alt="selectedRobot?.name" class="w-full h-auto rounded-lg shadow-md">
+            </div>
             
-            <!-- Awards in modal -->
-            <div x-show="selectedRobot?.awards?.length > 0" class="mt-6 bg-gray-50 rounded-lg p-6 border border-gray-200">
+            <!-- awards -->
+            <div x-show="selectedRobot?.awards?.length > 0" class="bg-gray-50 rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-bold text-primary mb-4">Awards</h3>
               <ul class="list-disc list-inside text-gray-700 space-y-2">
                 <template x-for="award in selectedRobot?.awards" :key="award.award">
@@ -107,7 +109,7 @@ layout: base.njk
             </div>
           </div>
           
-          <!-- Robot Info -->
+          <!-- markdown section -->
           <div>
             <h1 x-text="selectedRobot?.name" class="text-3xl md:text-4xl font-bold text-primary mb-6"></h1>
             
