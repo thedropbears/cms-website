@@ -30,13 +30,19 @@ layout: base.njk
           
           <button 
             @click="selectedRobot = {
-              name: '{{ robot.data.robotName }}',
-              year: '{{ robot.data.year }}',
-              game: '{{ robot.data.gameName }}',
-              image: '{{ robot.data.image }}',
-              description: `{{ robot.content | safe | replace('`', '\`') }}`,
-              awards: [{% for award in robot.data.awards %}{ award: '{{ award.award }}' }{% if not loop.last %},{% endif %}{% endfor %}]
+              name: $el.dataset.robotName,
+              year: $el.dataset.robotYear,
+              game: $el.dataset.robotGame,
+              image: $el.dataset.robotImage,
+              description: htmlUnescape($el.dataset.robotDescription),
+              awards: JSON.parse($el.dataset.robotAwards)
             }"
+            data-robot-name="{{ robot.data.robotName }}"
+            data-robot-year="{{ robot.data.year }}"
+            data-robot-game="{{ robot.data.gameName }}"
+            data-robot-image="{{ robot.data.image }}"
+            data-robot-description="{{ robot.content | safe | htmlescape }}"
+            data-robot-awards='[{% for award in robot.data.awards %}{"award": "{{ award.award }}"}{% if not loop.last %},{% endif %}{% endfor %}]'
             class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-blue-800 transition">
             Learn More
           </button>
@@ -116,3 +122,14 @@ layout: base.njk
 <style>
   [x-cloak] { display: none !important; }
 </style>
+
+<script>
+  function htmlUnescape(str) {
+    return str
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'");
+  }
+</script>

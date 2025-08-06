@@ -60,6 +60,18 @@ module.exports = function (eleventyConfig) {
     return array.slice(start, end);
   });
 
+  // HTML escape filter for data attributes
+  eleventyConfig.addFilter("htmlescape", (content) => {
+    return content
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/\n/g, ' ')
+      .replace(/\r/g, '');
+  });
+
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);
 
