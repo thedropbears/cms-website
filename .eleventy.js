@@ -85,7 +85,7 @@ module.exports = function (eleventyConfig) {
   });
   
   eleventyConfig.addCollection("robots", function(collection) {
-    return collection.getFilteredByGlob("src/_robots/*.md");
+    return collection.getFilteredByGlob("src/_robots/*.md").sort((a, b) => b.data.year - a.data.year);
   });
   
   eleventyConfig.addCollection("sponsors", function(collection) {

@@ -6,7 +6,7 @@ layout: base.njk
   <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Our Robots</h1>
   
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {% for robot in collections.robots | sort(false, false, 'year') | reverse %}
+    {% for robot in collections.robots %}
       <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
         <img src="{{ robot.data.image }}" alt="{{ robot.data.robotName }}" class="w-full h-48 object-cover">
         <div class="p-5">
