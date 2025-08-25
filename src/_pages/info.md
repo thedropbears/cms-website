@@ -15,8 +15,10 @@ Our team is based at USYD in Sydney, Australia.
 
 ## Meeting Schedule
 
-- **Regular Meetings**: Satudays 11AM-4PM and every second Thursdays, 4-8PM
-- **Build Season (January-February)**: Additional weekday sessions
+- **Build Season** (January-February):
+During School holidays: Daily Thursday to Monday - mid-morning to late afternoon (11am – 5pm)
+During Term time: Thursday to Monday – (1600 to 2000)
+- **Off Season:** Selected weekend day and a weekday after school as and if required
 - **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
 
 ---
@@ -58,13 +60,13 @@ Software students will be taught, over the course of the season:
 
 ## What is FRC?
 
-FIRST Robotics Competition (FRC) is a high school robotics competition that is held annually. It combines the excitement of sport with the rigors of science and technology. FRC is designed to help students explore science, technology, engineering, and mathematics (STEM) and to develop real-world skills for the future.
+FIRST Robotics Competition (FRC) is a global high school robotics competition that is held annually. It combines the excitement of sport with the rigors of science and technology. FRC is designed to help students explore science, technology, engineering, and mathematics (STEM) and to develop real-world skills for the future.
 
 {% youtube "Jd29kzjclV0", "What is FRC?" %}
 
 ## What is Build Season?
 
-Build season starts around early January and finishes around the end of February. During this time, the team designs and builds the robot for the upcoming competition, which is usually in mid-March.
+Build season starts around early January and finishes around the end of February. During this time, the team meets 5 days each week to design and build the robot for the regional competition, which takes place in Sydney during mid-March.
 
 ## What is Off Season?
 

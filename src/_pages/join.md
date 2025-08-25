@@ -43,6 +43,6 @@ There are many ways to contribute to The Drop Bears:
 
 ## How to Join
 
-1. **Express Your Interest**: Fill out our [interest form](https://forms.example.com/dropbears-interest) to be notified about upcoming seasons.
-2. **Attend the Information Session**: We hold a information session at the end of each school year, about 3 months before the start of the season.
-3. **Attend our workshops**: We run 4 workshops for our students to get them up to speed.
+1. **Express Your Interest**: Fill out our [interest form](https://forms.example.com/dropbears-interest) to be notified about our information session and when you can join us.
+2. **Attend the Information Session**: We hold an information session at the end of each school year, about 3 months before the start of the season.
+3. **Attend our workshops**: Following the information session, we run several workshops on the weekend for new students to get them up to speed.
