@@ -7,7 +7,7 @@ featuredImage: /static/img/team-photo.jpg
 ---
 ## About us
 
-We are a team of high school students, sharing our passion for STEM. Split into sub-teams and with support from our industry-skilled mentors, we compete in the worldwide, annual FIRST Robotics Competition.
+We are a team of high school students, sharing our passion for STEM. Split into sub-teams and with support from our industry-skilled mentors, we compete in the worldwide, annual [FIRST Robotics Competition](https://www.firstinspires.org/robotics/frc).
 
 Our team is based at USYD in Sydney, Australia.
 
@@ -17,7 +17,7 @@ Our team is based at USYD in Sydney, Australia.
 
 - **Build Season** (January-February):
 During School holidays: Daily Thursday to Monday - mid-morning to late afternoon (11am – 5pm)
-During Term time: Thursday to Monday – (1600 to 2000)
+During Term time: Thursday to Monday – (4pm to 8pm)
 - **Off Season:** Selected weekend day and a weekday after school as and if required
 - **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
 
@@ -58,6 +58,40 @@ Software students will be taught, over the course of the season:
 
 ---
 
+## Mentors
+
+Our team is supported by a group of experience and enthusiastic industry-skilled mentors. The mentoring group are the backbone of the team and encapsulate a mix of professional engineers, students who have previously competed in FRC and professionals from multidisciplinary backgrounds working in industry. Lead by the head mentor, this group assists with identifying tasks and teaching students how to strategise, design, build and code robots.
+
+### Head Mentors
+
+#### Lucien Morey
+
+Head Mentor, 2025 - Present
+
+A student in the team from 2013 - 2015, Lucien returned as a mentor in 2017, and is a software engineer specialising in spacecraft flight programming
+
+#### Dr James Ward
+
+*Australian Centre for Robotics at the University of Sydney*
+
+Head Mentor,  2013 – 2019, 2023 – 2025
+
+James combines his aeronautical engineering degree with a PhD in mechatronics to help students discover their passion for STEM subjects, and apply their passion in a way that goes far beyond what they could do at school.
+
+#### Ian Thomas
+
+Head Mentor, 2022 – 2023
+
+A founding member of the team as a student, Ian has been an enthusiastic Drop Bear for more than a decade. Now a professional working in robotics he is excited to give back as a mentor to the next generation of students.
+
+#### Andreas Heintze
+
+Head Mentor, 2019 – 2022
+
+Andreas spent seven years with the team while a senior executive in a prominent consulting engineering company.
+
+---
+
 ## What is FRC?
 
 FIRST Robotics Competition (FRC) is a global high school robotics competition that is held annually. It combines the excitement of sport with the rigors of science and technology. FRC is designed to help students explore science, technology, engineering, and mathematics (STEM) and to develop real-world skills for the future.
@@ -70,4 +104,4 @@ Build season starts around early January and finishes around the end of February
 
 ## What is Off Season?
 
-Off-season is before build season. During the off-season, we recruit and teach rookies the skills they will need, and we work on long-term projects like getting sponsors and recruitment.
+Off-season is the period after the local regional competition before build season. During the off-season, we work on our current robot to improve our skills and knowledge, usually take part in off-season competitions, which are sometimes inter-State, and work on longer-term projects including sponsorship and recruitment. In some years we have travelled to international competitions in Canada or the USA after the regional finals
