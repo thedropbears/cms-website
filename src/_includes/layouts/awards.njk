@@ -1,0 +1,67 @@
+---
+layout: base.njk
+---
+
+<div class="container mx-auto px-6 py-8 md:py-12">
+  <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6 text-center">{{ title }}</h1>
+  {% if description %}
+    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">{{ description }}</p>
+  {% endif %}
+
+  {# Build a flat list of all awards across robots #}
+  {% set allAwards = [] %}
+  {% for robot in collections.robots %}
+    {% if robot.data.awards and robot.data.awards.length %}
+      {% for a in robot.data.awards %}
+        {% if a.award and a.award | trim %}
+          {% set allAwards = (allAwards.push({
+            award: a.award,
+            year: robot.data.year,
+            robotName: robot.data.robotName
+          }), allAwards) %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {# Split awards into two roughly even columns #}
+  {% set leftAwards = [] %}
+  {% set rightAwards = [] %}
+  {% for item in allAwards %}
+    {% if loop.index0 % 2 == 0 %}
+      {% set leftAwards = (leftAwards.push(item), leftAwards) %}
+    {% else %}
+      {% set rightAwards = (rightAwards.push(item), rightAwards) %}
+    {% endif %}
+  {% endfor %}
+
+  <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-center">
+    <!-- Left awards -->
+    <div class="space-y-4">
+      {% for item in leftAwards %}
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+          <div class="text-sm text-gray-500 mb-1">{{ item.year }} • {{ item.robotName }}</div>
+          <div class="text-primary font-semibold">{{ item.award }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Center logo -->
+    <div class="flex items-center justify-center">
+      <div class="rounded-full border-4 border-gray-200 p-6 md:p-8 shadow-lg bg-white">
+        <img src="/static/img/logo.svg" alt="The Drop Bears Logo" class="w-40 h-40 md:w-56 md:h-56 object-contain">
+      </div>
+    </div>
+
+    <!-- Right awards -->
+    <div class="space-y-4">
+      {% for item in rightAwards %}
+        <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+          <div class="text-sm text-gray-500 mb-1">{{ item.year }} • {{ item.robotName }}</div>
+          <div class="text-primary font-semibold">{{ item.award }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+

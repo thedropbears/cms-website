@@ -6,6 +6,8 @@ items:
     url: /info/
   - text: Robots
     url: /robots/
+  - text: Awards
+    url: /awards/
   - text: Sponsors
     url: /sponsors/
   - text: Join
