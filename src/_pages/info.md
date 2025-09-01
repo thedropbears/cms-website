@@ -64,13 +64,13 @@ Our team is supported by a group of experienced and enthusiastic industry-skille
 
 ### Head Mentors
 
-#### ![Lucien Morey](/static/img/mentors/lucien-morey.svg) Lucien Morey
+#### ![Lucien Morey](/static/img/mentors/lucien.png) Lucien Morey
 
 Head Mentor, 2025 - Present
 
 A student in the team from 2013 - 2015, Lucien returned as a mentor in 2017. He is a software engineer specialising in spacecraft flight programming.
 
-#### ![James Ward](/static/img/mentors/james-ward.svg) Dr James Ward
+#### ![James Ward](/static/img/mentors/james.png) Dr James Ward
 
 *Australian Centre for Robotics at the University of Sydney*
 
@@ -78,13 +78,13 @@ Head Mentor,  2013 – 2019, 2023 – 2025
 
 James combines his aeronautical engineering degree with a PhD in mechatronics to help students discover their passion for STEM subjects, and apply their passion in a way that goes far beyond what they could do at school.
 
-#### ![Ian Thomas](/static/img/mentors/ian-thomas.svg) Ian Thomas
+#### ![Ian Thomas](/static/img/mentors/ian.png) Ian Thomas
 
 Head Mentor, 2022 – 2023
 
 A founding member of the team as a student, Ian has been an enthusiastic Drop Bear for well over a decade. Now a professional working in robotics he is excited to give back as a mentor to the next generation of students.
 
-#### ![Andreas Heintze](/static/img/mentors/andreas-heintze.svg) Andreas Heintze
+#### ![Andreas Heintze](/static/img/mentors/andreas.png) Andreas Heintze
 
 Head Mentor, 2019 – 2022
 
