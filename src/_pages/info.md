@@ -60,7 +60,7 @@ Software students will be taught, over the course of the season:
 
 ## Mentors
 
-Our team is supported by a group of experienced and enthusiastic industry-skilled mentors. The mentors are the backbone of the team and encapsulate a mix of professional engineers, students who have previously competed in FRC and professionals from multidisciplinary backgrounds working in industry. Led by the head mentor, they assist with identifying tasks and teaching students how to strategise, design, build and code robots.
+Our team is supported by a group of experienced and enthusiastic industry-skilled mentors. Our mentors are the backbone of the team and encapsulate a mix of professional engineers, students who have previously competed in FRC and professionals from multidisciplinary backgrounds working in industry. Led by the head mentor, they assist with identifying tasks and teaching students how to strategise, design, build and code robots.
 
 ### Head Mentors
 
@@ -68,7 +68,7 @@ Our team is supported by a group of experienced and enthusiastic industry-skille
 
 Head Mentor, 2025 - Present
 
-A student in the team from 2013 - 2015, Lucien returned as a mentor in 2017. He is a software engineer specialising in spacecraft flight programming.
+A student in the team from 2013 - 2015, Lucien returned as a mentor in 2017. He's a software engineer specialising in spacecraft flight programming.
 
 #### ![James Ward](/static/img/mentors/james.png) Dr James Ward
 
