@@ -5,7 +5,7 @@
 1.  create a branch from dev
 2.  make changes
 3.  merge to dev
-4.  ask team for feedback on dev preview https://preview.dropbears.org.au
+4.  ask team for feedback on dev preview https://preview.thedropbears.org.au
 5.  create pull request to prod
 6.  get mentors to approve
 7.  get checks to pass
