@@ -2,15 +2,13 @@
 
 ## putting code on prod
 
-1.  create a branch from dev
-2.  make changes
-3.  merge to dev
-4.  ask team for feedback on dev preview https://preview.thedropbears.org.au
-5.  create pull request to prod
-6.  get mentors to approve
-7.  get checks to pass
-8.  merge
-9.  yay
+1.  make changes, if small (update link) commit directly to main, if big (e.g. new subpage) make a branch
+2.  ask team for feedback on dev preview https://preview.thedropbears.org.au
+3.  create pull request to prod
+4.  get mentors to approve
+5.  get checks to pass
+6.  merge
+7.  yay
 
 ## Icons
 
