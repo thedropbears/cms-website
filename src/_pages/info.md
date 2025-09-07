@@ -27,18 +27,22 @@ During Term time: Thursday to Monday – (4pm to 8pm)
 
 ### Mechanical
 
-<img src="/static/img/mechanical.png" alt="Mechanical assembly work" class="w-full md:w-1/3 md:float-right md:ml-6 mb-4 rounded-lg shadow-md">
-
-The Mechanical Team is charged with the nuts and bolts of engineering the robot.
-
-It provides the opportunity for students to:
-
-- Design, and draw plans for engineering
-- Test designs both physically and theoretically
-- Physically construct the robot
-- Provide ongoing maintenance of the robot
-
-Students learn to use programs such as Onshape, a Computer Aided Design (CAD) package and develop skills within engineering mechanics to solve problems and design solutions.
+<div class="md:flex md:items-center md:gap-6">
+  <img src="/static/img/mechanical.png" alt="Mechanical assembly work" class="w-full md:w-1/3 mb-4 rounded-lg shadow-md">
+  <div class="md:w-2/3">
+  
+  The Mechanical Team is charged with the nuts and bolts of engineering the robot.
+  
+  It provides the opportunity for students to:
+  
+  - Design, and draw plans for engineering
+  - Test designs both physically and theoretically
+  - Physically construct the robot
+  - Provide ongoing maintenance of the robot
+  
+  Students learn to use programs such as Onshape, a Computer Aided Design (CAD) package and develop skills within engineering mechanics to solve problems and design solutions.
+  </div>
+</div>
 
 ---
 
