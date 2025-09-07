@@ -44,7 +44,6 @@ Students learn to use programs such as Onshape, a Computer Aided Design (CAD) pa
 
 ### Controls
 
-<img src="/static/img/controls.png" alt="FMS" class="w-full md:w-1/3 md:float-right md:ml-6 mb-4 rounded-lg shadow-md">
 
 In charge of controlling the robot and making it intelligent.
 
