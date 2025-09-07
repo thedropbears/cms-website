@@ -1,12 +1,16 @@
 # The Drop Bears Website
 
-## Features
+## putting code on prod
 
-- **Responsive Design**: Mobile-friendly layouts built with Tailwind CSS
-- **Content Management**: Edit content through markdown files
-- **Fast Performance**: Static site generation for optimal load times
-- **SEO Optimized**: Built-in meta tags and semantic HTML
-- **Accessible**: WCAG-compliant with proper semantic markup
+1.  create a branch from dev
+2.  make changes
+3.  merge to dev
+4.  ask team for feedback on dev preview https://preview.dropbears.org.au
+5.  create pull request to prod
+6.  get mentors to approve
+7.  get checks to pass
+8.  merge
+9.  yay
 
 ## Icons
 
