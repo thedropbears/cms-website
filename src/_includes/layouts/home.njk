@@ -58,45 +58,6 @@ layout: base.njk
   </div>
 </section>
 
-<!-- Latest Notices -->
-<section class="py-12 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <div class="flex justify-between items-center mb-8">
-      <h2 class="text-3xl font-bold text-primary"></h2>
-      <a href="/notices/" class="text-primary hover:text-accent">View All</a>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {% set latestNotices = collections.notices | sort(true, false, 'date') | slice(0, 4) %}
-      {% for notice in latestNotices %}
-        <div class="bg-white border {% if notice.data.important %}border-accent{% else %}border-gray-200{% endif %} rounded-lg shadow-md overflow-hidden">
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-3">
-              <h3 class="text-lg font-bold {% if notice.data.important %}text-accent{% else %}text-primary{% endif %}">
-                {{ notice.data.title }}
-                {% if notice.data.important %}
-                  <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-white">
-                    Important
-                  </span>
-                {% endif %}
-              </h3>
-              <time class="text-gray-500 text-sm" datetime="{{ notice.data.date | machineDate }}">
-                {{ notice.data.date | readableDate }}
-              </time>
-            </div>
-            
-            <div class="prose prose-sm line-clamp-3">
-              {{ notice.templateContent | safe }}
-            </div>
-            
-            <a href="{{ notice.url }}" class="mt-4 inline-block text-primary hover:text-accent">Read More</a>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 <!-- Team Calendar -->
 <section class="py-12 md:py-24">
   <div class="container mx-auto px-6">
@@ -135,6 +96,68 @@ layout: base.njk
           </iframe>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-bold text-primary">Latest Video</h2>
+      <a href="https://www.youtube.com/@thedropbears" class="text-primary hover:text-accent">Visit Channel</a>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="responsive-iframe">
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=UUp9bo9X9uXZOaNanhKPNSZw"
+          title="The Drop Bears – Latest Uploads"
+          width="100%"
+          height="400"
+          frameborder="0"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+ </section>
+
+ <section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-primary"></h2>
+      <a href="/notices/" class="text-primary hover:text-accent">View All</a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% set latestNotices = collections.notices | sort(true, false, 'date') | slice(0, 4) %}
+      {% for notice in latestNotices %}
+        <div class="bg-white border {% if notice.data.important %}border-accent{% else %}border-gray-200{% endif %} rounded-lg shadow-md overflow-hidden">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-lg font-bold {% if notice.data.important %}text-accent{% else %}text-primary{% endif %}">
+                {{ notice.data.title }}
+                {% if notice.data.important %}
+                  <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-white">
+                    Important
+                  </span>
+                {% endif %}
+              </h3>
+              <time class="text-gray-500 text-sm" datetime="{{ notice.data.date | machineDate }}">
+                {{ notice.data.date | readableDate }}
+              </time>
+            </div>
+            
+            <div class="prose prose-sm line-clamp-3">
+              {{ notice.templateContent | safe }}
+            </div>
+            
+            <a href="{{ notice.url }}" class="mt-4 inline-block text-primary hover:text-accent">Read More</a>
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
