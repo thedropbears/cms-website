@@ -14,13 +14,21 @@ We're always looking for enthusiastic students to join our team! The Drop Bears 
 - Interested in robotics, engineering, programming, design, business, marketing, or leadership
 - Willing to commit to team meetings and build sessions
 
+## How to Join
+
+1. **Express Your Interest**: Fill out our [interest form](https://forms.example.com/dropbears-interest) to be notified about our information session and when you can join us.
+2. **Attend the Information Session**: We hold an information session at the end of each school year, about 3 months before the start of the season.
+3. **Attend our workshops**: Following the information session, we run a short series of workshops on the following weekends for new students like you to bring you up to speed.
+
 ### Do I need previous robotics experience to join?
 
 No experience is required to join but a passion for learning and a curious mind is essential.  If you do have some experience in programming, mechanical skills or project management then it will help you even more.
 
-## What Can You Do?
+### How much Does it cost?
 
-There are many ways to contribute to The Drop Bears:
+The overall cost for joining the team for a season is $650. This is split into two sections. After the general information day there will be 5 training sessions over November-December, for which the cost is $100. If after the training sessions you wish to continue with the team, there is an additional cost of $550 for the whole season.
+
+## What Can You Do?
 
 ### Mechanical Engineering
 
@@ -41,8 +49,4 @@ There are many ways to contribute to The Drop Bears:
 - Implement computer vision systems
 - Analyze data for performance improvements
 
-## How to Join
 
-1. **Express Your Interest**: Fill out our [interest form](https://forms.example.com/dropbears-interest) to be notified about our information session and when you can join us.
-2. **Attend the Information Session**: We hold an information session at the end of each school year, about 3 months before the start of the season.
-3. **Attend our workshops**: Following the information session, we run a short series of workshops on the following weekends for new students like you to bring you up to speed.
