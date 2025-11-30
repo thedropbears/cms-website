@@ -4,6 +4,8 @@ items:
     url: /
   - text: Info
     url: /info/
+  - text: What is FRC?
+    url: /what-is-frc/
   - text: Robots
     url: /robots/
   - text: Awards

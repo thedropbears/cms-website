@@ -7,7 +7,7 @@ permalink: /join/
 
 We're always looking for enthusiastic students to join our team! The Drop Bears welcome students from all backgrounds, with or without prior experience in robotics, programming, or engineering.
 
-> **Important:** Our 2025 interest form is now closed. Please check back later in the year for details on the next intake or contact us at [enquiries@thedropbears.org.au](mailto:enquiries@thedropbears.org.au) if you have any questions.
+**Important:** Our 2026 interest form is now **closed**. Please check back later next year for details on the next intake or contact us at [enquiries@thedropbears.org.au](mailto:enquiries@thedropbears.org.au) if you have any questions.
 
 ## Who Can Join?
 
@@ -45,6 +45,6 @@ There are many ways to contribute to The Drop Bears:
 
 ## How to Join
 
-1. **Express Your Interest**: The interest form is closed for the current intake. Join our mailing list at the end of the year or reach out via email so we can let you know when applications reopen.
+1. **Express Your Interest**: The interest form is closed for the current intake. Check back September next year or reach out via email to join season 2027.
 2. **Attend the Information Session**: We hold an information session at the end of each school year, about 3 months before the start of the season.
 3. **Attend our workshops**: Following the information session, we run a short series of workshops on the following weekends for new students like you to bring you up to speed.

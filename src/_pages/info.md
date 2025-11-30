@@ -97,18 +97,3 @@ Head Mentor, 2019 – 2022
 
 Andreas spent seven years with the team while a senior executive in a prominent consulting engineering company.
 
----
-
-## What is FRC?
-
-FIRST Robotics Competition (FRC) is a global high school robotics competition that is held annually. It combines the excitement of sport with the rigors of science and technology. FRC is designed to help students explore science, technology, engineering, and mathematics (STEM) and to develop real-world skills for the future.
-
-{% youtube "Jd29kzjclV0", "What is FRC?" %}
-
-## What is Build Season?
-
-Build season starts around early January and finishes around the end of February. During this time, the team meets 5 days each week to design and build the robot for the regional competition, which takes place in Sydney during mid-March.
-
-## What is Off Season?
-
-Off-season is the period after the local regional competition before build season. During the off-season, we work on our current robot to improve our skills and knowledge, usually take part in off-season competitions, which are sometimes inter-State, and work on longer-term projects including sponsorship and recruitment. In some years we have travelled to international competitions in Canada or the USA after the regional finals
