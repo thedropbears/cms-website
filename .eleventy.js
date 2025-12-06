@@ -91,10 +91,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("sponsors", function(collection) {
     return collection.getFilteredByGlob("src/_sponsors/*.md");
   });
-  
-  eleventyConfig.addCollection("notices", function(collection) {
-    return collection.getFilteredByGlob("src/_notices/*.md");
-  });
 
   // Copy Static Files to /_Site
   eleventyConfig.addPassthroughCopy({
