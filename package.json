@@ -1,7 +1,7 @@
 {
   "name": "dropbears-website",
   "version": "1.0.0",
-  "description": "Website for The Drop Bears (FRC Team 4774) built with 11ty and Decap CMS",
+  "description": "Website for The Drop Bears (FRC Team 4774) built with 11ty",
   "scripts": {
     "start": "npm-run-all --parallel css eleventy browsersync",
     "eleventy": "eleventy --watch",

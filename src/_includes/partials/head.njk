@@ -2,8 +2,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>{% if title %}{{ title }} | {% endif %}{{ settings.name }}</title>
-<meta name="description" content="{% if description %}{{ description }}{% else %}{{ settings.description }}{% endif %}">
+{% set pageTitle = title or settings.name %}
+{% set pageDescription = description or settings.description %}
+{% set siteUrl = settings.siteUrl or "" %}
+{% set canonicalUrl = page.url %}
+{% if siteUrl and page.url %}
+  {% set canonicalUrl = siteUrl + page.url %}
+{% endif %}
+{% set ogImage = featuredImage or settings.defaultOgImage %}
+{% set ogImageUrl = "" %}
+{% if ogImage %}
+  {% if ogImage.startsWith and ogImage.startsWith("http") %}
+    {% set ogImageUrl = ogImage %}
+  {% elseif siteUrl %}
+    {% set ogImageUrl = siteUrl + ogImage %}
+  {% else %}
+    {% set ogImageUrl = ogImage %}
+  {% endif %}
+{% endif %}
+
+<title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ settings.name }}</title>
+<meta name="description" content="{{ pageDescription }}">
+{% if canonicalUrl %}
+  <link rel="canonical" href="{{ canonicalUrl }}">
+{% endif %}
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+{% if canonicalUrl %}
+  <meta property="og:url" content="{{ canonicalUrl }}">
+{% endif %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ settings.name }}">
+{% if ogImageUrl %}
+  <meta property="og:image" content="{{ ogImageUrl }}">
+{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription }}">
+{% if ogImageUrl %}
+  <meta name="twitter:image" content="{{ ogImageUrl }}">
+{% endif %}
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
