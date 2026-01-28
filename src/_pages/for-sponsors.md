@@ -4,10 +4,12 @@ description: Sponsorship overview for supporting The Drop Bears
 layout: layouts/page.njk
 permalink: /for-sponsors/
 callout:
-  text: We are seeking sponsorships of $2000-$10000.
+  text: "We're on the lookout for more fantastic sponsors to get on board and help us continue to fulfill our mission of further creating young engineers. We have a variety of options for sponsorship and are after more assistance. Contributions big or small, or the funding of specific activities are always welcome and appreciated. We can include your logos in media and marketing packages as well as on the robot, and bring student-run presentations to your business or community event with functional robots for demonstrations. Get in touch now to help sponsor our robotics non-profit!"
   ctaText: Contact us
   ctaUrl: /contact/
 ---
+
+[[CALLOUT]]
 
 ## Who are The Drop Bears?
 
@@ -48,5 +50,3 @@ See us in action: [https://youtu.be/VUXFyxdBxkE](https://youtu.be/VUXFyxdBxkE)
 - Demonstrate community engagement to your employees and customers
 - Logo recognition on our robot, website, and social media channels
 - Content for your own social channels or staff engagement messaging
-
-[[CALLOUT]]

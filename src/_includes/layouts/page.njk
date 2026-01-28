@@ -14,9 +14,13 @@ layout: base.njk
   {% set calloutToken = "[[CALLOUT]]" %}
   {% if callout %}
     {% set hasCta = callout.ctaText and callout.ctaUrl %}
+    {% set calloutTextClass = "mb-0" %}
+    {% if hasCta %}
+      {% set calloutTextClass = "mb-4" %}
+    {% endif %}
     {% set calloutHtml %}
       <div class="bg-blue-50 border border-blue-100 rounded-lg px-6 py-5 mb-8">
-        <p class="text-lg font-semibold text-primary mt-0 {{ hasCta ? 'mb-4' : 'mb-0' }}">{{ callout.text }}</p>
+        <p class="text-lg font-semibold text-primary mt-0 {{ calloutTextClass }}">{{ callout.text }}</p>
         {% if hasCta %}
           <a href="{{ callout.ctaUrl }}" class="inline-block px-5 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
             {{ callout.ctaText }}
