@@ -4,9 +4,30 @@ layout: base.njk
 
 <div class="container mx-auto px-6 py-8 md:py-12">
   <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Our Sponsors</h1>
+
+  {% set calloutToken = "[[CALLOUT]]" %}
+  {% if callout %}
+    {% set calloutHtml %}
+      <div class="bg-blue-50 border border-blue-100 rounded-lg px-6 py-5 mb-8">
+        <h2 class="text-xl font-semibold text-primary mb-2 mt-0">{{ callout.title }}</h2>
+        <p class="text-lg mb-4 mt-0">{{ callout.text }}</p>
+        <a href="{{ callout.ctaUrl }}" class="inline-block px-5 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
+          {{ callout.ctaText }}
+        </a>
+      </div>
+    {% endset %}
+    {% set hasCalloutToken = (content | replace(calloutToken, "")) != content %}
+    {% if not hasCalloutToken %}
+      {{ calloutHtml | safe }}
+    {% endif %}
+  {% endif %}
   
   <div class="prose prose-lg max-w-none mb-8">
-    {{ content | safe }}
+    {% if callout %}
+      {{ content | replace(calloutToken, calloutHtml) | safe }}
+    {% else %}
+      {{ content | safe }}
+    {% endif %}
   </div>
   
   {% set platinumSponsors = [] %}
@@ -133,12 +154,5 @@ layout: base.njk
       </div>
     </div>
   {% endif %}
-  
-  <div class="mt-12 bg-gray-50 rounded-lg p-8 shadow-inner">
-    <h2 class="text-2xl font-bold text-primary mb-4">New Sponsors</h2>
-    <p class="text-lg mb-6">We're on the lookout for more fantastic sponsors to get on board and help us continue to fulfill our mission of further creating young engineers. We have a variety of options for sponsorship and are after more assistance. Contributions big or small, or the funding of specific activities are always welcome and appreciated. We can include your logos in media and marketing packages as well as on the robot, and bring student-run presentations to your business or community event with functional robots for demonstrations. Get in touch now to help sponsor our robotics non-profit!</p>
-    <a href="mailto:enquiries@thedropbears.org.au" class="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
-      Contact Us
-    </a>
-  </div>
+
 </div> 
