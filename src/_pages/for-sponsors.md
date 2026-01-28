@@ -4,7 +4,9 @@ description: Sponsorship overview for supporting The Drop Bears
 layout: layouts/page.njk
 permalink: /for-sponsors/
 callout:
-  text: We are seeking sponsorships of $1000-$5000.
+  text: We are seeking sponsorships of $2000-$10000.
+  ctaText: Contact us
+  ctaUrl: /contact/
 ---
 
 ## Who are The Drop Bears?
@@ -16,7 +18,7 @@ We are high school students building technical and teamwork skills, supported by
 ## Our students
 
 - Aged 14-18
-- Design, prototype, and build a competitive robot in just 8 weeks
+- Design, prototype, and build a competitive robot
 - Learn software, mechanical, and engineering skills from mentors and each other
 - Develop collaboration, problem-solving, and communication capabilities
 - Create an inclusive team environment to boost students' confidence
