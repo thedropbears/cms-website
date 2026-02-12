@@ -15,11 +15,11 @@ Our team is based at USYD in Sydney, Australia.
 
 ## Meeting Schedule
 
-- **Build Season** (January-February):
-During School holidays: Daily Thursday to Monday - mid-morning to late afternoon (11am – 5pm)
-During Term time: Thursday to Monday – (4pm to 8pm)
+- **Build Season** (January – Mid-March):
+During School holidays: Daily Thursday to Monday 11am – 5pm
+During Term time: Saturday, Sunday 11am – 5pm and Thursday, Friday, Monday 4pm – 8pm
 - **Off Season:** Selected weekend day and a weekday after school as and if required
-- **Location**: [J04 Rose Street Building, Australian Centre of Field Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
+- **Location**: [J04 Rose Street Building, Australian Centre for Robotics, Faculty of Engineering in The University of Sydney.](https://goo.gl/maps/aBFCtXQtQXVrZzb5A)
 
 ---
 
