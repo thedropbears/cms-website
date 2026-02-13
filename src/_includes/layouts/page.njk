@@ -13,30 +13,53 @@ layout: base.njk
 
   {% set calloutToken = "[[CALLOUT]]" %}
   {% if callout %}
-    {% set hasCta = callout.ctaText and callout.ctaUrl %}
-    {% set calloutTextClass = "mb-0" %}
-    {% if hasCta %}
-      {% set calloutTextClass = "mb-4" %}
+    {% set callouts = callout %}
+    {% if callout.length == undefined %}
+      {% set callouts = [callout] %}
     {% endif %}
-    {% set calloutHtml %}
-      <div class="bg-blue-50 border border-blue-100 rounded-lg px-6 py-5 mb-8">
-        <p class="text-lg font-semibold text-primary mt-0 {{ calloutTextClass }}">{{ callout.text }}</p>
-        {% if hasCta %}
-          <a href="{{ callout.ctaUrl }}" class="inline-block px-5 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
-            {{ callout.ctaText }}
-          </a>
+
+    {% set calloutsHtml %}
+      {% for item in callouts %}
+        {% set buttons = item.buttons %}
+        {% if (buttons == undefined or buttons.length == undefined) and item.ctaText and item.ctaUrl %}
+          {% set buttons = [{ "text": item.ctaText, "url": item.ctaUrl }] %}
         {% endif %}
-      </div>
+
+        {% set hasButtons = buttons and buttons.length %}
+        {% set calloutTextClass = "mb-0" %}
+        {% if hasButtons %}
+          {% set calloutTextClass = "mb-4" %}
+        {% endif %}
+
+        <div class="bg-blue-50 border border-blue-100 rounded-lg px-6 py-5 mb-8">
+          {% if item.title %}
+            <h2 class="text-xl font-semibold text-primary mb-2 mt-0">{{ item.title }}</h2>
+          {% endif %}
+          {% if item.text %}
+            <p class="text-lg font-semibold text-primary mt-0 {{ calloutTextClass }}">{{ item.text }}</p>
+          {% endif %}
+          {% if hasButtons %}
+            <div class="flex flex-wrap gap-3">
+              {% for button in buttons %}
+                <a href="{{ button.url }}" class="inline-block px-5 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
+                  {{ button.text }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
     {% endset %}
+
     {% set hasCalloutToken = (content | replace(calloutToken, "")) != content %}
     {% if not hasCalloutToken %}
-      {{ calloutHtml | safe }}
+      {{ calloutsHtml | safe }}
     {% endif %}
   {% endif %}
   
   <div class="prose prose-lg max-w-none">
     {% if callout %}
-      {{ content | replace(calloutToken, calloutHtml) | safe }}
+      {{ content | replace(calloutToken, calloutsHtml) | safe }}
     {% else %}
       {{ content | safe }}
     {% endif %}

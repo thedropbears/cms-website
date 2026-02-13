@@ -6,29 +6,51 @@ layout: base.njk
   <h1 class="text-3xl md:text-4xl font-bold text-primary mb-8">Our Sponsors</h1>
 
   {% set calloutToken = "[[CALLOUT]]" %}
+  {% set logosToken = "[[SPONSORS]]" %}
   {% if callout %}
-    {% set calloutHtml %}
-      <div class="bg-blue-50 border border-blue-100 rounded-lg px-6 py-5 mb-8">
-        <h2 class="text-xl font-semibold text-primary mb-2 mt-0">{{ callout.title }}</h2>
-        <p class="text-lg mb-4 mt-0">{{ callout.text }}</p>
-        <a href="{{ callout.ctaUrl }}" class="inline-block px-5 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
-          {{ callout.ctaText }}
-        </a>
-      </div>
+    {% set callouts = callout %}
+    {% if callout.length == undefined %}
+      {% set callouts = [callout] %}
+    {% endif %}
+
+    {% set calloutsHtml %}
+      {% for item in callouts %}
+        {% set buttons = item.buttons %}
+        {% if (buttons == undefined or buttons.length == undefined) and item.ctaText and item.ctaUrl %}
+          {% set buttons = [{ "text": item.ctaText, "url": item.ctaUrl }] %}
+        {% endif %}
+
+        {% set hasButtons = buttons and buttons.length %}
+        {% set calloutTextClass = "mb-0" %}
+        {% if hasButtons %}
+          {% set calloutTextClass = "mb-4" %}
+        {% endif %}
+
+        <div class="bg-blue-50 border border-blue-100 rounded-lg px-6 py-5 mb-8">
+          {% if item.title %}
+            <h2 class="text-xl font-semibold text-primary mb-2 mt-0">{{ item.title }}</h2>
+          {% endif %}
+          {% if item.text %}
+            <p class="text-lg mt-0 {{ calloutTextClass }}">{{ item.text }}</p>
+          {% endif %}
+          {% if hasButtons %}
+            <div class="flex flex-wrap gap-3">
+              {% for button in buttons %}
+                <a href="{{ button.url }}" class="inline-block px-5 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
+                  {{ button.text }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
     {% endset %}
+
     {% set hasCalloutToken = (content | replace(calloutToken, "")) != content %}
     {% if not hasCalloutToken %}
-      {{ calloutHtml | safe }}
+      {{ calloutsHtml | safe }}
     {% endif %}
   {% endif %}
-  
-  <div class="prose prose-lg max-w-none mb-8">
-    {% if callout %}
-      {{ content | replace(calloutToken, calloutHtml) | safe }}
-    {% else %}
-      {{ content | safe }}
-    {% endif %}
-  </div>
   
   {% set platinumSponsors = [] %}
   {% set goldSponsors = [] %}
@@ -49,110 +71,132 @@ layout: base.njk
       {% set supporterSponsors = (supporterSponsors.push(sponsor), supporterSponsors) %}
     {% endif %}
   {% endfor %}
-  
-  {% if platinumSponsors.length %}
-    <div class="mb-12">
-      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200"> Current Sponsors</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-        {% for sponsor in platinumSponsors %}
-          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 col-span-full lg:col-span-1 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
-              {% if sponsor.data.logo %}
-                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-48" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="text-3xl font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
-              {% else %}
-                <div class="text-3xl font-semibold text-primary">{{ sponsor.data.name }}</div>
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
+
+  {% set hasSponsors = platinumSponsors.length or goldSponsors.length or silverSponsors.length or bronzeSponsors.length or supporterSponsors.length %}
+  {% set logosHtml %}
+    {% if platinumSponsors.length %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200"> Current Sponsors</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          {% for sponsor in platinumSponsors %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 col-span-full lg:col-span-1 flex flex-col items-center justify-center">
+              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
+                {% if sponsor.data.logo %}
+                  <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-48" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <div class="text-3xl font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+                {% else %}
+                  <div class="text-3xl font-semibold text-primary">{{ sponsor.data.name }}</div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    {% endif %}
+    
+    {% if goldSponsors.length %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Gold Sponsors</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {% for sponsor in goldSponsors %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
+                {% if sponsor.data.logo %}
+                  <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-36" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <div class="text-xl font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+                {% else %}
+                  <div class="text-xl font-semibold text-primary">{{ sponsor.data.name }}</div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    
+    {% if silverSponsors.length %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Silver Sponsors</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {% for sponsor in silverSponsors %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
+                {% if sponsor.data.logo %}
+                  <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+                {% else %}
+                  <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    
+    {% if bronzeSponsors.length %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Bronze Sponsors</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {% for sponsor in bronzeSponsors %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
+                {% if sponsor.data.logo %}
+                  <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+                {% else %}
+                  <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    
+    {% if supporterSponsors.length %}
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Supporter Sponsors</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {% for sponsor in supporterSponsors %}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
+              <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
+                {% if sponsor.data.logo %}
+                  <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                  <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
+                {% else %}
+                  <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endset %}
+
+  {% set hasLogosToken = (content | replace(logosToken, "")) != content %}
+  {% set renderedContent = content %}
+  {% if callout %}
+    {% set renderedContent = renderedContent | replace(calloutToken, calloutsHtml) %}
+  {% endif %}
+  {% if hasSponsors %}
+    {% set renderedContent = renderedContent | replace(logosToken, logosHtml) %}
+  {% else %}
+    {% set renderedContent = renderedContent | replace(logosToken, "") %}
   {% endif %}
   
-  {% if goldSponsors.length %}
-    <div class="mb-12">
-      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Gold Sponsors</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for sponsor in goldSponsors %}
-          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
-              {% if sponsor.data.logo %}
-                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-36" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="text-xl font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
-              {% else %}
-                <div class="text-xl font-semibold text-primary">{{ sponsor.data.name }}</div>
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-  
-  {% if silverSponsors.length %}
-    <div class="mb-12">
-      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Silver Sponsors</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {% for sponsor in silverSponsors %}
-          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
-              {% if sponsor.data.logo %}
-                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
-              {% else %}
-                <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-  
-  {% if bronzeSponsors.length %}
-    <div class="mb-12">
-      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Bronze Sponsors</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {% for sponsor in bronzeSponsors %}
-          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
-              {% if sponsor.data.logo %}
-                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
-              {% else %}
-                <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-  
-  {% if supporterSponsors.length %}
-    <div class="mb-12">
-      <h2 class="text-2xl font-bold text-primary mb-6 pb-2 border-b border-gray-200">Supporter Sponsors</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {% for sponsor in supporterSponsors %}
-          <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden p-6 flex flex-col items-center justify-center">
-            <a href="{{ sponsor.data.link }}" target="_blank" rel="noopener" class="flex w-full h-full flex-col items-center justify-center text-center py-4">
-              {% if sponsor.data.logo %}
-                <img src="{{ sponsor.data.logo }}" alt="{{ sponsor.data.name }}" class="max-w-full h-auto mx-auto max-h-24" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="text-lg font-semibold text-primary" style="display: none;">{{ sponsor.data.name }}</div>
-              {% else %}
-                <div class="text-lg font-semibold text-primary">{{ sponsor.data.name }}</div>
-              {% endif %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="prose prose-lg max-w-none mb-8">
+    {{ renderedContent | safe }}
+  </div>
+
+  {% if hasSponsors and not hasLogosToken %}
+    {{ logosHtml | safe }}
   {% endif %}
 
 </div> 
