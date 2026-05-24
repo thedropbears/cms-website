@@ -1,6 +1,5 @@
 const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
 const Image = require("@11ty/eleventy-img");
 
@@ -72,9 +71,6 @@ module.exports = function (eleventyConfig) {
       .replace(/\r/g, '');
   });
 
-  // Syntax Highlighting for Code blocks
-  eleventyConfig.addPlugin(syntaxHighlight);
-
   // To Support .yaml Extension in _data
   // You may remove this if you can use JSON
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
@@ -96,8 +92,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./src/admin/config.yml": "./admin/config.yml",
     "./node_modules/alpinejs/dist/cdn.min.js": "./static/js/alpine.js",
-    "./node_modules/prismjs/themes/prism-tomorrow.css":
-      "./static/css/prism-tomorrow.css",
     "./node_modules/@phosphor-icons/web/src/regular/style.css": "./static/css/phosphor-regular.css",
     "./node_modules/@phosphor-icons/web/src/fill/style.css": "./static/css/phosphor-fill.css",
     // Copy Phosphor font files
