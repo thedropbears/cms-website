@@ -1,18 +1,17 @@
 # The Drop Bears Website
 
-## putting code on prod
+## Contributing
 
-1.  make a branch, make changed
-2.  create pull request to prod
-3.  ask team for feedback on dev preview https://preview.thedropbears.org.au
-4.  get mentors to approve
-5.  get checks to pass
-6.  merge
-7.  yay
+1.  Make a branch and push changes
+2.  Create pull request to production
+3.  Ask team for feedback on dev preview (pages bot will comment a link)
+4.  Get approval review
+5.  Get checks to pass
+6.  Merge
 
 ## Icons
 
-This project uses [Phosphor Icons](https://phosphoricons.com/) for scalable vector icons throughout the interface.
+This site uses [Phosphor Icons](https://phosphoricons.com/) for scalable vector icons throughout the interface.
 
 ### Using Icons
 
@@ -53,7 +52,7 @@ The site includes the following content collections:
 
 This project is licensed under the MIT License.
 
-Copyright (c) 2025 Team 4774 The Drop Bears
+Copyright (c) 2026 Team 4774 The Drop Bears
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
