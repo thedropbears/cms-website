@@ -1,5 +1,4 @@
 const yaml = require("js-yaml");
-const { DateTime } = require("luxon");
 const htmlmin = require("html-minifier");
 const Image = require("@11ty/eleventy-img");
 
@@ -41,18 +40,6 @@ module.exports = function (eleventyConfig) {
   // Add image shortcode
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
-
-  // human readable date
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
-    );
-  });
-
-  // Date formatting (machine readable)
-  eleventyConfig.addFilter("machineDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-MM-dd");
-  });
 
   // Array slice filter for collections
   eleventyConfig.addFilter("slice", (array, start, end) => {
