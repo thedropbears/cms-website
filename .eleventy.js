@@ -130,6 +130,10 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  eleventyConfig.addShortcode("currentYear", function() {
+    return `${new Date().getFullYear()}`;
+  });
+
   eleventyConfig.addShortcode("youtube", function(id, title = "YouTube video") {
     return `<div class="responsive-iframe">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" 
