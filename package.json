@@ -1,5 +1,6 @@
 {
   "name": "dropbears-website",
+  "private": true,
   "version": "1.0.0",
   "description": "Website for The Drop Bears (FRC Team 4774) built with 11ty",
   "scripts": {
@@ -12,10 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thedropbears/team-website"
+    "url": "https://github.com/thedropbears/website"
   },
   "author": "The Drop Bears",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.16"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^3.1.0",
