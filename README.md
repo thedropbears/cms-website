@@ -52,7 +52,7 @@ The site includes the following content collections:
 
 This project is licensed under the MIT License.
 
-Copyright (c) 2026 Team 4774 The Drop Bears
+Copyright (c) 2025 - 20xx Team 4774 The Drop Bears
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
