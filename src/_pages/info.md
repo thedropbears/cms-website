@@ -67,7 +67,7 @@ Software students will be taught, over the course of the season:
 
 ## Mentors
 
-Our team is supported by a diverse group of mentors experienced in a variety of relevant fields from industry, academia, and government service. Mentors are the backbone of the team. Together, they share their knowledge, skills, and experience with students.  The mentors provide guidance to the students, help them overcome challenges, and fill in the gaps in their knowledge and skills, In doing this, they guide and encourage students towards making good decisions themselves - not by doing things for them.
+Our team is supported by a diverse group of mentors experienced in a variety of relevant fields from industry, academia, and government service. Mentors are the backbone of the team. Together, they share their knowledge, skills, and experience with students.  The mentors provide guidance to the students, help them overcome challenges, and fill in the gaps in their knowledge and skills. In doing this, they guide and encourage students towards making good decisions themselves - not by doing things for them.
 
 ### Head Mentors
 
