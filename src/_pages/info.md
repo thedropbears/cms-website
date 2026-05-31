@@ -67,33 +67,31 @@ Software students will be taught, over the course of the season:
 
 ## Mentors
 
-Our team is supported by a group of experienced and enthusiastic industry-skilled mentors. Our mentors are the backbone of the team and encapsulate a mix of professional engineers, students who have previously competed in FRC and professionals from multidisciplinary backgrounds working in industry. Led by the head mentor, they assist with identifying tasks and teaching students how to strategise, design, build and code robots.
+Our team is supported by a diverse group of mentors experienced in a variety of relevant fields from industry, academia, and government service. Mentors are the backbone of the team. Together, they share their knowledge, skills, and experience with students.  The mentors provide guidance to the students, help them overcome challenges, and fill in the gaps in their knowledge and skills, In doing this, they guide and encourage students towards making good decisions themselves - not by doing things for them.
 
 ### Head Mentors
 
 #### ![Lucien Morey](/static/img/mentors/lucien.png) Lucien Morey
 
-Head Mentor, 2025 - Present
+Head Mentor, 2025 to Present
 
-A student in the team from 2013 - 2015, Lucien returned as a mentor in 2017. He's a software engineer specialising in spacecraft flight programming.
+Lucien is a software engineer who has extensive experience in spacecraft flight programming and is now working in advanced drone technology. He was a student in the team from 2013 to 2015 and returned as a mentor in 2017.
 
 #### ![James Ward](/static/img/mentors/james.png) Dr James Ward
 
-*Australian Centre for Robotics at the University of Sydney*
+Head Mentor,  2013 to 2019, 2023 to 2025
 
-Head Mentor,  2013 – 2019, 2023 – 2025
-
-James combines his aeronautical engineering degree with a PhD in mechatronics to help students discover their passion for STEM subjects, and apply their passion in a way that goes far beyond what they could do at school.
+James combines his aeronautical engineering degree with a PhD in mechatronics to help students discover a passion for STEM subjects, and apply that passion in a way that goes far beyond what they could do at school. James is continuing to provide remote input to The Drop Bears while he is temporarily in the USA.
 
 #### ![Ian Thomas](/static/img/mentors/ian.png) Ian Thomas
 
-Head Mentor, 2022 – 2023
+Head Mentor, 2022 to 2023
 
-A founding member of the team as a student, Ian has been an enthusiastic Drop Bear for well over a decade. Now a professional working in robotics he is excited to give back as a mentor to the next generation of students.
+Ian is a professional working in engineering design and robotics. A founding member of the team in 2013 as a student, Ian is now giving back to the next generation of students as a mentor, with his particular emphasis being on mechanical design.
 
 #### ![Andreas Heintze](/static/img/mentors/andreas.png) Andreas Heintze
 
-Head Mentor, 2019 – 2022
+Head Mentor, 2019 to 2022
 
-Andreas spent seven years with the team while a senior executive in a prominent consulting engineering company.
+Andreas, an engineer originally specialising in hydraulics, spent seven years with the team while a senior executive in a prominent consulting engineering company.
 
