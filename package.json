@@ -1,5 +1,6 @@
 {
   "name": "dropbears-website",
+  "private": true,
   "version": "1.0.0",
   "description": "Website for The Drop Bears (FRC Team 4774) built with 11ty",
   "scripts": {
@@ -12,30 +13,30 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thedropbears/team-website"
+    "url": "https://github.com/thedropbears/website"
   },
   "author": "The Drop Bears",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.16"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^3.1.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
     "@tailwindcss/typography": "^0.5.0",
-    "alpinejs": "^3.7.1",
+    "autoprefixer": "^10.4.2",
     "browser-sync": "^3.0.4",
     "cross-env": "^7.0.3",
     "cssnano": "^5.0.15",
     "html-minifier": "^4.0.0",
     "js-yaml": "^4.1.0",
-    "luxon": "^2.3.0",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all2": "^8.0.4",
+    "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
-    "prismjs": "^1.26.0",
     "tailwindcss": "^3.0.13"
   },
   "dependencies": {
     "@phosphor-icons/web": "^2.1.2",
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5"
+    "alpinejs": "^3.7.1"
   }
 }

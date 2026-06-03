@@ -17,10 +17,3 @@ h3 {
   width: 4rem;  /* 64px */
   height: 4rem; /* ensure square for proper circle */
 }
-
-/* Syntax Highlighting*/
-
-body :not(pre) > code[class*="language-"],
-body pre[class*="language-"] {
-  @apply bg-gray-800;
-}
