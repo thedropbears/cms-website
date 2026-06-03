@@ -12,7 +12,6 @@ h3 {
   @apply text-2xl font-bold mb-3;
 }
 
-/* Mentor images: auto-crop to circles inside the Mentors section */
 .prose h4 img[src*="/static/img/mentors/"] {
   @apply rounded-full object-cover inline-block align-middle mr-3;
   width: 4rem;  /* 64px */
