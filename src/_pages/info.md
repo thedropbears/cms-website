@@ -28,7 +28,7 @@ During Term time: Saturday, Sunday 11am – 5pm and Thursday, Friday, Monday 4pm
 ### Mechanical
 
 <div class="md:flex md:items-center md:gap-6">
-  <img src="/static/img/mechanical.png" alt="Mechanical assembly work" class="w-full md:w-1/3 mb-4 rounded-lg shadow-md">
+  {% image "/static/img/mechanical.png", "Mechanical assembly work", "(min-width: 768px) 33vw, 100vw", "w-full md:w-1/3 mb-4 rounded-lg shadow-md" %}
   <div class="md:w-2/3">
   
   The Mechanical Team is charged with the nuts and bolts of engineering the robot.

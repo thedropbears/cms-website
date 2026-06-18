@@ -2,32 +2,68 @@ const yaml = require("js-yaml");
 const htmlmin = require("html-minifier");
 const Image = require("@11ty/eleventy-img");
 
-// Image shortcode for responsive images
-async function imageShortcode(src, alt, sizes = "100vw") {
-  if (!src) {
-    throw new Error(`Missing image path: ${src}`);
-  }
+// Normalize a web path (/static/img/foo.jpg) to a filesystem source path.
+function imageInputPath(src) {
+  return src.startsWith("/static/") ? "./src" + src : src;
+}
 
-  let metadata = await Image(src, {
+// Generate (or reuse cached) responsive image variants for a source image.
+async function generateImageMetadata(src) {
+  return await Image(imageInputPath(src), {
     widths: [300, 600, 900, 1200],
     formats: ["webp", "jpeg"],
     urlPath: "/static/img/",
     outputDir: "./_site/static/img/",
     filenameFormat: function (id, src, width, format) {
-      const extension = format;
       const name = src.split("/").pop().split(".")[0];
-      return `${name}-${width}w.${extension}`;
+      return `${name}-${width}w.${format}`;
     }
   });
+}
+
+// Responsive <picture> shortcode. Pass eager=true for above-the-fold images
+// (the LCP element) so they load with high priority instead of lazily.
+async function imageShortcode(src, alt, sizes = "100vw", className = "", eager = false) {
+  if (!src) {
+    throw new Error(`Missing image path: ${src}`);
+  }
+
+  let metadata = await generateImageMetadata(src);
 
   let imageAttributes = {
     alt,
     sizes,
-    loading: "lazy",
+    loading: eager ? "eager" : "lazy",
     decoding: "async",
   };
+  if (className) {
+    imageAttributes.class = className;
+  }
+  if (eager) {
+    imageAttributes.fetchpriority = "high";
+  }
 
   return Image.generateHTML(metadata, imageAttributes);
+}
+
+// Return the URL of the largest optimized WebP variant for a source image.
+// Used where a single src is needed at runtime (e.g. Alpine bindings).
+async function imageUrlShortcode(src) {
+  if (!src) {
+    return "";
+  }
+  let metadata = await generateImageMetadata(src);
+  let webp = metadata.webp;
+  return webp[webp.length - 1].url;
+}
+
+// Return a srcset string for a source image, for use in <link rel="preload">.
+async function imageSrcsetShortcode(src, format = "webp") {
+  if (!src) {
+    return "";
+  }
+  let metadata = await generateImageMetadata(src);
+  return (metadata[format] || []).map((entry) => entry.srcset).join(", ");
 }
 
 module.exports = function (eleventyConfig) {
@@ -37,9 +73,10 @@ module.exports = function (eleventyConfig) {
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
 
-  // Add image shortcode
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+  // Add image shortcodes (universal: available in njk, liquid and markdown)
+  eleventyConfig.addAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addAsyncShortcode("imageUrl", imageUrlShortcode);
+  eleventyConfig.addAsyncShortcode("imageSrcset", imageSrcsetShortcode);
 
   // Array slice filter for collections
   eleventyConfig.addFilter("slice", (array, start, end) => {

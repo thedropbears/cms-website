@@ -8,7 +8,7 @@ layout: base.njk
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {% for robot in collections.robots %}
       <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-        <img src="{{ robot.data.image }}" alt="{{ robot.data.robotName }}" class="w-full h-48 object-cover">
+        {% image robot.data.image, robot.data.robotName, "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw", "w-full h-48 object-cover" %}
         <div class="p-5">
           <h2 class="text-2xl font-bold text-primary">{{ robot.data.robotName }}</h2>
           <p class="text-gray-600">{{ robot.data.year }} - {{ robot.data.gameName }}</p>
@@ -40,7 +40,7 @@ layout: base.njk
             data-robot-name="{{ robot.data.robotName }}"
             data-robot-year="{{ robot.data.year }}"
             data-robot-game="{{ robot.data.gameName }}"
-            data-robot-image="{{ robot.data.image }}"
+            data-robot-image="{% imageUrl robot.data.image %}"
             data-robot-description="{{ robot.content | safe | htmlescape }}"
             data-robot-awards='[{% for award in robot.data.awards %}{"award": "{{ award.award }}"}{% if not loop.last %},{% endif %}{% endfor %}]'
             class="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-blue-800 transition">
@@ -95,7 +95,7 @@ layout: base.njk
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <!-- image -->
             <div>
-              <img :src="selectedRobot?.image" :alt="selectedRobot?.name" class="w-full h-auto rounded-lg shadow-md">
+              <img :src="selectedRobot?.image" :alt="selectedRobot?.name" loading="lazy" decoding="async" class="w-full h-auto rounded-lg shadow-md">
             </div>
             
             <!-- awards -->

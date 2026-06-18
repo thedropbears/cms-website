@@ -5,7 +5,7 @@ layout: base.njk
 <div class="container mx-auto px-6 py-8 md:py-12">
   {% if featuredImage %}
     <div class="mb-8">
-      <img src="{{ featuredImage }}" alt="{{ title }}" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md">
+      {% image featuredImage, title, "100vw", "w-full h-64 md:h-96 object-cover rounded-lg shadow-md" %}
     </div>
   {% endif %}
   

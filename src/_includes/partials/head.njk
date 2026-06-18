@@ -43,6 +43,11 @@
   <meta name="twitter:image" content="{{ ogImageUrl }}">
 {% endif %}
 
+<!-- Preload the homepage hero (LCP image) -->
+{% if page.url == "/" %}
+  <link rel="preload" as="image" type="image/webp" imagesrcset="{% imageSrcset '/static/img/hero-robot.jpg' %}" imagesizes="(min-width: 768px) 50vw, 100vw">
+{% endif %}
+
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
