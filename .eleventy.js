@@ -1,5 +1,5 @@
 const yaml = require("js-yaml");
-const htmlmin = require("html-minifier");
+const htmlmin = require("html-minifier-terser");
 const Image = require("@11ty/eleventy-img");
 
 // Image shortcode for responsive images
@@ -97,15 +97,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/favicon.ico");
 
   // Minify HTML
-  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+  eleventyConfig.addTransform("htmlmin", async function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
-      let minified = htmlmin.minify(content, {
+      return await htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
       });
-      return minified;
     }
 
     return content;
