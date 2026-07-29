@@ -1,0 +1,12 @@
+{% if settings.banner.enabled %}
+  <div class="bg-accent text-primary">
+    <div class="container mx-auto px-6 py-3">
+      <p class="text-center text-sm md:text-base font-medium">
+        {{ settings.banner.text }}
+        <a href="{{ settings.banner.url }}" class="underline underline-offset-2 font-bold hover:text-white transition">
+          {{ settings.banner.linkText }}
+        </a>
+      </p>
+    </div>
+  </div>
+{% endif %}
