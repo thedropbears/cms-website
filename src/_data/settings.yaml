@@ -6,7 +6,7 @@ banner:
   enabled: true
   text: "Our interest form is now open!"
   linkText: "Express your interest"
-  url: "https://forms.gle/5nvTVwzTXN8MVHyL8"
+  url: "/eoi/"
 social:
   youtube: "https://www.youtube.com/@thedropbears"
   instagram: "https://www.instagram.com/frc_thedropbears"
