@@ -11,7 +11,7 @@ We're always looking for enthusiastic students to join our team! The Drop Bears 
 
 ## Who Can Join?
 
-- High school students (Years 8-12)
+- High school students (Years 9-12)
 - Located in Sydney
 - Interested in robotics, engineering, programming, design, business, marketing, or leadership
 - Willing to commit to team meetings and build sessions
